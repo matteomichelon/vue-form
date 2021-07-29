@@ -41,137 +41,150 @@
     <!-- Vue Container -->
     <div id="root">
 
-        <!-- HEADER -->
-        <header class="display-flex position-fixed">
+        <!-- Wrapper -->
+        <section class="wrapper">
+
+            <div class="container-image">
+                <img :src="'img/' + background_image" alt="forest-image">
+            </div>
+
             <!-- Logo -->
             <div class="logo">
                 <img :src="'img/' + headerLogo" alt="logo">
             </div>
             <!-- end Logo -->
 
-            <!-- Nav -->
-            <nav>
-                test
-            </nav>
-            <!-- end Nav -->
-        </header>
-        <!-- end HEADER -->
-
-        <section class="wrapper">
-
+            <!-- MAIN -->
             <main>
 
-                <div class="container">
+                <!-- Container -->
+                <div class="container display-flex">
 
-                    <!-- Form 1 -->
-                    <form @submit.prevent="sendForm_name()" autocomplete="off" v-if="!(form_name_success)">
+                    <!-- Title Form -->
+                    <div class="title">
+                        <h1>Form Name</h1>
+                        <p>In questo form andremo ad inserire una stringa che può essere composta da lettere e numeri;
+                            l'unica richiesta è che la stringa non sia pari a zero caratteri.
+                        </p>
+                    </div>
+                    <!-- end Title Form -->
 
-                        <!-- Name -->
-                        <div class="box-form">
-                            <label for="name">Nome:</label>
-                            <input v-model="form_name.name"
-                                @blur="$v.form_name.name.$touch()"
-                                :class="{error: errorClass($v.form_name.name), valid: validClass($v.form_name.name)}"
-                                id="name">
-                            <p v-if="$v.form_name.name.$error"
-                                class="error-message">
-                                Il campo nome è richiesto
-                            </p>
-                        </div>
-                        <!-- end Name -->
+                    <!-- FORM -->
+                    <div class="form">
 
-                        <!-- Submit -->
-                        <!-- Rimane disabilitato finchè i campi non vengono compilati correttamente
-                 La mail è richiesta solo in caso di sottoscrizione alla newsletter -->
-                        <div>
-                            <button :disabled="$v.form_name.$invalid">Invia</button>
-                        </div>
-                        <!-- end Submit -->
+                        <!-- Form 1 -->
+                        <form @submit.prevent="sendForm_name()" autocomplete="off" v-if="!(form_name_success)">
 
-                    </form>
-                    <!-- end Form 1 -->
-
-                    <form @submit.prevent="sendForm_age" autocomplete="off" v-if="form_name_success">
-
-                        <!-- Age -->
-                        <div class="box-form">
-                            <label for="age">Age:</label>
-                            <input v-model.number="form_age.age"
-                                @blur="$v.form_age.age.$touch()"
-                                :class="{error: errorClass($v.form_age.age), valid: validClass($v.form_age.age)}"
-                                id="age">
-                            <div v-if="$v.form_age.age.$error">
-                                <p v-if="!$v.form_age.age.required"
+                            <!-- Name -->
+                            <div class="box-form">
+                                <label for="name">Nome:</label>
+                                <input v-model="form_name.name"
+                                    @blur="$v.form_name.name.$touch()"
+                                    :class="{error: errorClass($v.form_name.name), valid: validClass($v.form_name.name)}"
+                                    id="name">
+                                <p v-if="$v.form_name.name.$error"
                                     class="error-message">
-                                    Inserisci l'età per proseguire
-                                </p>
-                                <p v-else-if="!$v.form_age.age.integer"
-                                    class="error-message">
-                                    Il campo accetta solo numeri
-                                </p>
-                                <p v-else-if="!$v.form_age.age.minMaxAge"
-                                    class="error-message">
-                                    Devi aggiungere un dato compreso tra 12 e 120
+                                    Il campo nome è richiesto
                                 </p>
                             </div>
-                        </div>
-                        <!-- end Age -->
+                            <!-- end Name -->
 
-                        <!-- Submit -->
-                        <!-- Rimane disabilitato finchè i campi non vengono compilati correttamente
-                 La mail è richiesta solo in caso di sottoscrizione alla newsletter -->
-                        <div>
-                            <button :disabled="$v.form_age.$invalid">Invia</button>
-                        </div>
-                        <!-- end Submit -->
+                            <!-- Submit -->
+                            <div>
+                                <button :disabled="$v.form_name.$invalid">Invia</button>
+                            </div>
+                            <!-- end Submit -->
 
-                    </form>
+                        </form>
+                        <!-- end Form 1 -->
 
-                    <form @submit.prevent="sendForm_email" autocomplete="off" v-if="form_age_success">
+                        <!-- Form 2 -->
+                        <form @submit.prevent="sendForm_age" autocomplete="off" v-if="form_name_success">
 
-                        <!-- Newsletter -->
-                        <div class="box-form">
-                            <label for="newsletter">Sottoscriviti alla nostra newsletter</label>
-                            <input v-model="form_email.newsletter"
-                                type="checkbox"
-                                id="newsletter">
-                        </div>
-                        <!-- end Newsletter -->
+                            <!-- Age -->
+                            <div class="box-form">
+                                <label for="age">Age:</label>
+                                <input v-model.number="form_age.age"
+                                    @blur="$v.form_age.age.$touch()"
+                                    :class="{error: errorClass($v.form_age.age), valid: validClass($v.form_age.age)}"
+                                    id="age">
+                                <div v-if="$v.form_age.age.$error">
+                                    <p v-if="!$v.form_age.age.required"
+                                        class="error-message">
+                                        Inserisci l'età per proseguire
+                                    </p>
+                                    <p v-else-if="!$v.form_age.age.integer"
+                                        class="error-message">
+                                        Il campo accetta solo numeri
+                                    </p>
+                                    <p v-else-if="!$v.form_age.age.minMaxAge"
+                                        class="error-message">
+                                        Devi aggiungere un dato compreso tra 12 e 120
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- end Age -->
 
-                        <!-- Email -->
-                        <div class="box-form">
-                            <label for="email">Email:</label>
-                            <input v-model="form_email.email"
-                                @blur="$v.form_email.email.$touch()"
-                                :class="{error: errorClass($v.form_email.email), valid: validClass($v.form_email.email)}"
-                                id="email">
-                            <p v-if="!$v.form_email.email.email && $v.form_email.email.$error"
-                                class="error-message">
-                                L'indirizzo email inserito non è valido
-                            </p>
-                            <p v-if="!$v.form_email.email.required && $v.form_email.email.$error"
-                                class="error-message">
-                                L'email è richiesta se vuoi aggiungerti alla nostra lista di newsletter
-                            </p>
-                        </div>
-                        <!-- end Email -->
+                            <!-- Submit -->
+                            <div>
+                                <button :disabled="$v.form_age.$invalid">Invia</button>
+                            </div>
+                            <!-- end Submit -->
 
-                        <!-- Submit -->
-                        <!-- Rimane disabilitato finchè i campi non vengono compilati correttamente
-                 La mail è richiesta solo in caso di sottoscrizione alla newsletter -->
-                        <div>
-                            <button :disabled="$v.form_email.$invalid">Invia</button>
-                        </div>
-                        <!-- end Submit -->
+                        </form>
 
-                    </form>
-                    <!-- end Form 1 -->
+                        <form @submit.prevent="sendForm_email" autocomplete="off" v-if="form_age_success">
+
+                            <!-- Newsletter -->
+                            <div class="box-form">
+                                <label for="newsletter">Sottoscriviti alla nostra newsletter</label>
+                                <input v-model="form_email.newsletter"
+                                    type="checkbox"
+                                    id="newsletter">
+                            </div>
+                            <!-- end Newsletter -->
+                            <!-- end Form 2 -->
+
+
+                            <!-- Form 3 -->
+                            <!-- Email -->
+                            <div class="box-form">
+                                <label for="email">Email:</label>
+                                <input v-model="form_email.email"
+                                    @blur="$v.form_email.email.$touch()"
+                                    :class="{error: errorClass($v.form_email.email), valid: validClass($v.form_email.email)}"
+                                    id="email">
+                                <p v-if="!$v.form_email.email.email && $v.form_email.email.$error"
+                                    class="error-message">
+                                    L'indirizzo email inserito non è valido
+                                </p>
+                                <p v-if="!$v.form_email.email.required && $v.form_email.email.$error"
+                                    class="error-message">
+                                    L'email è richiesta se vuoi aggiungerti alla nostra lista di newsletter
+                                </p>
+                            </div>
+                            <!-- end Email -->
+
+                            <!-- Submit -->
+                            <div>
+                                <button :disabled="$v.form_email.$invalid">Invia</button>
+                            </div>
+                            <!-- end Submit -->
+
+                        </form>
+                        <!-- end Form 3 -->
+
+                    </div>
+                    <!-- end FORM -->
 
                 </div>
+                <!-- end Container -->
 
             </main>
+            <!-- end MAIN -->
 
         </section>
+        <!-- end Wrapper -->
 
     </div>
     <!-- end Vue Container -->

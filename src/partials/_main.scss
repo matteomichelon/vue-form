@@ -1,8 +1,21 @@
-main{
-    .container{
+main {
+
+    .container {
         width: 80%;
         height: 100%;
         margin: auto;
         padding: 50px 0;
+
+        /* test */
+        background-color: white;
+
+        .title {
+            width: 60%;
+        }
+
+        .form {
+            width: 40%;
+        }
     }
+
 }

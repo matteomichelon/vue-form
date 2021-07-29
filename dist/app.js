@@ -16,6 +16,7 @@ new Vue({
   /* DATA */
   data: {
     headerLogo: 'logo.png',
+    background_image: 'background.jpg',
 
     /* Form Object */
     form_name: {
