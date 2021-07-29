@@ -54,19 +54,18 @@
             <main>
 
                 <!-- Form 1 -->
-                <!-- v-if="!(form_name_success)"" -->
                 <div class="container display-flex">
 
                     <!-- Title Form -->
                     <div class="title">
-                        <h1>Form Name</h1>
+                        <h2>Form Name</h2>
                         <p>In questo form andremo ad inserire una stringa che può essere composta da lettere e numeri;
                             l'unica richiesta è che la stringa non sia pari a zero caratteri.
                         </p>
                     </div>
-                    
+
                     <!-- Form -->
-                    <form @submit.prevent="sendForm_name()" autocomplete="off">
+                    <form @submit.prevent="sendForm_name" autocomplete="off">
 
                         <!-- Name -->
                         <div class="box-form">
@@ -84,10 +83,10 @@
                         <!-- Submit -->
                         <div>
                             <button :disabled="$v.form_name.$invalid">Conferma</button>
-                            <button @click="scrollToTop" v-if="form_name_success">Continua</button>
+                            <a @click="scrollToTop" v-if="form_name_success">Continua</a>
                         </div>
 
-                    </form>                    
+                    </form>
 
                 </div>
                 <!-- end Form 1 -->
@@ -98,14 +97,14 @@
 
                     <!-- Title Form -->
                     <div class="title">
-                        <h1>Form Name</h1>
-                        <p>In questo form andremo ad inserire una stringa che può essere composta da lettere e numeri;
-                            l'unica richiesta è che la stringa non sia pari a zero caratteri.
+                        <h2>Form Età</h2>
+                        <p>In questo form andremo ad inserire un numero interno compreso tra 12 e 120.
+                            Il campo inoltre non accetta l'inserimento di stringhe.
                         </p>
                     </div>
 
-                    <!-- Form -->                    
-                    <form ref="art1" @submit.prevent="sendForm_age" autocomplete="off" >
+                    <!-- Form -->
+                    <form ref="art1" @submit.prevent="sendForm_age" autocomplete="off">
 
                         <!-- Age -->
                         <div class="box-form">
@@ -133,12 +132,32 @@
 
                         <!-- Submit -->
                         <div>
-                            <button :disabled="$v.form_age.$invalid">Invia</button>
+                            <button :disabled="$v.form_age.$invalid">Conferma</button>
+                            <a @click="scrollToTop" v-if="form_age_success">Continua</a>
                         </div>
                         <!-- end Submit -->
 
                     </form>
 
+                </div>
+                <!-- end Form 2 -->
+
+                <!-- Form 3 -->
+                <!-- v-if="form_name_success" -->
+                <div class="container display-flex " v-if="form_age_success">
+
+                    <!-- Title Form -->
+                    <div class="title">
+                        <h2>Form Email</h2>
+                        <p>
+                            In questo form andremo ad inserire una mail, il campo non è obbligatorio
+                            se non è presente la spunta nella checkbox della newsletter.
+                            Se scriviamo senza aggiungere la spunta il tasto invia si disattiva.                       
+
+                        </p>
+                    </div>
+
+                    <!-- Form -->
                     <form @submit.prevent="sendForm_email" autocomplete="off" v-if="form_age_success">
 
                         <!-- Newsletter -->
@@ -173,13 +192,14 @@
 
                         <!-- Submit -->
                         <div>
-                            <button :disabled="$v.form_email.$invalid">Invia</button>
+                            <button :disabled="$v.form_email.$invalid">Termina</button>
                         </div>
                         <!-- end Submit -->
 
                     </form>
-                    <!-- end Form 3 -->
+
                 </div>
+                <!-- end Form 3 -->
 
             </main>
             <!-- end MAIN -->

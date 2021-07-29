@@ -95,6 +95,7 @@ new Vue({
 
       if (!this.$v.form_age.$invalid) {
         console.log('📝 Form Submitted', this.form_age);
+        this.form_age_success = true;
       } else {
         console.log('❌ Invalid form');
       }
@@ -112,7 +113,7 @@ new Vue({
     },
     // Funzione scroll to Top
     scrollToTop: function scrollToTop() {
-      window.scrollTo(0, 1000);
+      window.scrollTo(0, 3000);
     }
   }
 });
