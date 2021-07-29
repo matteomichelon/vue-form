@@ -43,14 +43,14 @@ new Vue( {
     methods: {
         // Funzione per la validazione del campo
         // Deve avere un paramentro. Esempio: $v.form.email
-        validClass ( field ) { 
-            return !field.$invalid && field.$model && field.$dirty
+        validClass ( fieldForm ) { 
+            return !fieldForm.$invalid && fieldForm.$model && fieldForm.$dirty
         },
 
         // Funzione per l'errore del campo
         // Deve avere un paramentro. Esempio: $v.form.email
-        errorClass ( field ) { 
-            return field.$error
+        errorClass ( fieldForm ) { 
+            return fieldForm.$error
         },
 
         // Funzione Invia Form
