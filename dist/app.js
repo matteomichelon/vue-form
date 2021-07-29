@@ -76,8 +76,10 @@ new Vue({
     errorClass: function errorClass(fieldForm) {
       return fieldForm.$error;
     },
+
+    /* Send Form */
     // Funzione Invia Form per il nome
-    // Entra in funzione quando il bottone invia viene premuto
+    // Entra in funzione quando il button viene premuto
     sendForm_name: function sendForm_name() {
       this.$v.form_name.$touch();
 
@@ -88,8 +90,6 @@ new Vue({
         console.log('❌ Invalid form');
       }
     },
-    // Funzione Invia Form per l'età
-    // Entra in funzione quando il bottone invia viene premuto
     sendForm_age: function sendForm_age() {
       this.$v.form_age.$touch();
 
@@ -100,8 +100,6 @@ new Vue({
         console.log('❌ Invalid form');
       }
     },
-    // Funzione Invia Form per la mail
-    // Entra in funzione quando il bottone invia viene premuto
     sendForm_email: function sendForm_email() {
       this.$v.form_email.$touch();
 
@@ -111,6 +109,8 @@ new Vue({
         console.log('❌ Invalid form');
       }
     },
+
+    /* end Send Form */
     // Funzione scroll to Top
     scrollToTop: function scrollToTop() {
       window.scrollTo(0, 3000);
