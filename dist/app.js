@@ -109,6 +109,10 @@ new Vue({
       } else {
         console.log('❌ Invalid form');
       }
+    },
+    // Funzione scroll to Top
+    scrollToTop: function scrollToTop() {
+      window.scrollTo(0, 1000);
     }
   }
 });
