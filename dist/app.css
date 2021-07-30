@@ -6,6 +6,7 @@
 
 body {
   font-family: "Roboto", sans-serif;
+  background-image: url("../img/background.jpg");
 }
 
 img {
@@ -16,8 +17,6 @@ img {
 .wrapper {
   width: 100%;
   height: 100%;
-  background-image: url("../img/background.jpg");
-  z-index: -1;
 }
 
 .logo {
@@ -32,14 +31,23 @@ img {
   display: flex;
 }
 
-main .container {
-  width: 80%;
+.flex-direction-xs {
+  display: flex;
+  flex: none;
+  flex-wrap: wrap;
+  flex-direction: column;
+  overflow-x: auto;
+}
+
+main {
+  width: 100vw;
   height: 100vh;
-  margin: auto;
-  padding: 50px 0;
+}
+main .container {
+  width: 100%;
+  height: 100%;
+  padding: 50px;
   align-items: center;
-  /* test */
-  border: 1px solid black;
 }
 main .container .title {
   width: 60%;

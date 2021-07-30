@@ -1,5 +1,8 @@
 Vue.use( vuelidate.default )
 
+// For form_name
+//const format = validators.pattern("[!@#$%^&*()_+\-=\[\]{};':\"\\|,.<>\/?]+");
+
 // For form_age
 const minMaxAge = validators.between( 12, 120 )
 
@@ -11,6 +14,8 @@ new Vue( {
 
         headerLogo: 'logo.png',
         background_image: 'background.jpg',
+        displayMobile: false,
+        windowWidth: 0,
 
         /* Form Object */
         form_name: {
@@ -35,7 +40,8 @@ new Vue( {
     validations: {
         form_name: {
             name: {
-                required: validators.required // $v.form.name.required
+                required: validators.required, // $v.form.name.required
+                //format
             }
         },
 
@@ -79,7 +85,7 @@ new Vue( {
             if ( !this.$v.form_name.$invalid ) {
                 this.form_name_success = true;
                 console.log( '📝 Form Submitted', this.form_name )
-                
+
             } else {
                 console.log( '❌ Invalid form' )
             }
@@ -107,9 +113,32 @@ new Vue( {
         /* end Send Form */
 
         // Funzione scroll to Top
-        scrollToTop(){
-            window.scrollTo(0, 3000);
-        }
+        scrollToTop () {
+            window.scrollTo( 0, 3000 );
+        },
+
+        // Funzione che mi permette di vedere i width pixel 
+        getWindowWidth () {
+            this.windowWidth = document.documentElement.clientWidth;
+        },
+    },
+
+    // Rimuove l'evento in ascolto getWindowWidth
+    /* TODO */
+    beforeDestroy () {
+        window.removeEventListener( 'resize', this.getWindowWidth );
+    },
+
+    /* MOUNTED */
+    mounted () {
+        // Funzione per monitorare la larghezza del monitor
+        this.$nextTick( function () {
+            window.addEventListener( 'resize', this.getWindowWidth );
+
+            //Init
+            this.getWindowWidth()
+        } )
+
     }
 
 } )

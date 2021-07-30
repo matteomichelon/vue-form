@@ -45,13 +45,14 @@
         <section class="wrapper">
 
             <!-- Logo -->
-            <div class="logo">
+            <!-- TODO -->
+            <!-- <div class="logo">
                 <img :src="'img/' + headerLogo" alt="logo">
-            </div>
+            </div> -->
             <!-- end Logo -->
 
             <!-- MAIN -->
-            <main>
+            <main :class="{'flex-direction-xs' : windowWidth < 400 }">
 
                 <!-- Form 1 -->
                 <div class="container display-flex">
@@ -126,13 +127,13 @@
                                     Devi aggiungere un dato compreso tra 12 e 120
                                 </p>
                             </div>
-                        </div>                        
+                        </div>
 
                         <!-- Submit -->
                         <div>
                             <button :disabled="$v.form_age.$invalid">Conferma</button>
                             <a @click="scrollToTop" v-if="form_age_success">Continua</a>
-                        </div>                        
+                        </div>
 
                     </form>
 
@@ -149,7 +150,7 @@
                         <p>
                             In questo form andremo ad inserire una mail, il campo non è obbligatorio
                             se non è presente la spunta nella checkbox della newsletter.
-                            Se scriviamo senza aggiungere la spunta il tasto invia si disattiva.                       
+                            Se scriviamo senza aggiungere la spunta il tasto invia si disattiva.
 
                         </p>
                     </div>
@@ -163,7 +164,7 @@
                             <input v-model="form_email.newsletter"
                                 type="checkbox"
                                 id="newsletter">
-                        </div>                   
+                        </div>
 
                         <!-- Email -->
                         <div class="box-form">
@@ -180,12 +181,12 @@
                                 class="error-message">
                                 L'email è richiesta se vuoi aggiungerti alla nostra lista di newsletter
                             </p>
-                        </div>                       
+                        </div>
 
                         <!-- Submit -->
                         <div>
                             <button :disabled="$v.form_email.$invalid">Termina</button>
-                        </div>                        
+                        </div>
 
                     </form>
 
