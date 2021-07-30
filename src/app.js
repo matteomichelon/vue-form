@@ -16,6 +16,7 @@ new Vue( {
         background_image: 'background.jpg',
         displayMobile: false,
         windowWidth: 0,
+        widthXs: 600,
 
         /* Form Object */
         form_name: {
