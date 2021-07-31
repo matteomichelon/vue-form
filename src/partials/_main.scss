@@ -4,28 +4,11 @@ main {
     width: 100vw;
     height: 100vh;
 
-    // For Mobile Device
-    &.flex-direction-xs {
-        display: flex;
-        min-height: min-content;
-        flex: none;
-        flex-wrap: wrap;
-        flex-direction: column;
-        overflow-x: scroll;
-    }
-
     .container {
         width: 100vw;
         height: 100vh;
         padding: 50px;
         flex-direction: column;
-
-        &.flex-container-xs {
-            flex-direction: row;
-            align-items: center;
-            justify-content: space-between;
-            padding: 15px;
-        }
 
         form {
             width: 100%;
@@ -154,16 +137,56 @@ main {
                 @include i-nav-style;
             }
         }
+    }
+}
 
-        .box-nav-xs {
+@media screen and (max-width:600px) {
+    main {
+        display: flex;
+        min-height: min-content;
+        flex: none;
+        flex-wrap: wrap;
+        flex-direction: column;
+        overflow-x: scroll;
 
-            i {
-                @include i-nav-style;
+        p {
+            font-size: 15px;
+            line-height: 20px;
+        }
+
+        .container {
+            position: relative;
+            padding: 15px;
+
+            .box-form,
+            .title,
+            .button-form,
+            .box-newsletter {
+                width: 90%;
+            }
+
+            form{
+                justify-content: flex-start;
+            }
+
+            .box-form > input {
+                font-size: 22px;
+            }
+
+            .box-nav-xs {
+                position: absolute;
+                bottom: 15%;
+                right: 15%;
+
+                &.return {
+                    left: 15%;
+                }
+
+                i {
+                    vertical-align: middle;
+                }
 
             }
         }
-
-
     }
-
 }

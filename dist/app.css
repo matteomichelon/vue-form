@@ -70,27 +70,11 @@ main {
   width: 100vw;
   height: 100vh;
 }
-main.flex-direction-xs {
-  display: flex;
-  min-height: -webkit-min-content;
-  min-height: -moz-min-content;
-  min-height: min-content;
-  flex: none;
-  flex-wrap: wrap;
-  flex-direction: column;
-  overflow-x: scroll;
-}
 main .container {
   width: 100vw;
   height: 100vh;
   padding: 50px;
   flex-direction: column;
-}
-main .container.flex-container-xs {
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  padding: 15px;
 }
 main .container form {
   width: 100%;
@@ -219,9 +203,47 @@ main .container .box-nav-lg i {
   background-color: #22ad96;
   border-radius: 10px;
 }
-main .container .box-nav-xs i {
-  padding: 10px;
-  color: #F7E6E6;
-  background-color: #22ad96;
-  border-radius: 10px;
+
+@media screen and (max-width: 600px) {
+  main {
+    display: flex;
+    min-height: -webkit-min-content;
+    min-height: -moz-min-content;
+    min-height: min-content;
+    flex: none;
+    flex-wrap: wrap;
+    flex-direction: column;
+    overflow-x: scroll;
+  }
+  main p {
+    font-size: 15px;
+    line-height: 20px;
+  }
+  main .container {
+    position: relative;
+    padding: 15px;
+  }
+  main .container .box-form,
+main .container .title,
+main .container .button-form,
+main .container .box-newsletter {
+    width: 90%;
+  }
+  main .container form {
+    justify-content: flex-start;
+  }
+  main .container .box-form > input {
+    font-size: 22px;
+  }
+  main .container .box-nav-xs {
+    position: absolute;
+    bottom: 15%;
+    right: 15%;
+  }
+  main .container .box-nav-xs.return {
+    left: 15%;
+  }
+  main .container .box-nav-xs i {
+    vertical-align: middle;
+  }
 }
