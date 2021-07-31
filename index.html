@@ -14,10 +14,10 @@
         integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
         crossorigin="anonymous" />
 
-    <!-- Link Roboto Font Google -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+    <!-- Link Noto Sans Font Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
         rel="stylesheet">
 
     <!-- Script ajax -->
@@ -55,53 +55,60 @@
             <main :class="{'flex-direction-xs' : windowWidth < widthXs }">
 
                 <!-- Form 1 -->
-                <div class="container display-flex">
+                <div id="form-name" class="container display-flex">
 
-                    <!-- Title Form -->
-                    <div class="title">
-                        <h2>Form Name</h2>
-                        <p>In questo form andremo ad inserire una stringa che può essere composta da lettere e numeri;
-                            l'unica richiesta è che la stringa non sia pari a zero caratteri.
-                        </p>
-                    </div>
+                    <div class="inner-container display-flex">
 
-                    <!-- Continue Tag -->
-                    <div class="continue bottom" v-if="form_name_success && windowWidth > widthXs">
-                        <i class="fas fa-arrow-down" @click="scrollToTop" ></i>
-                    </div>
-
-                    <div class="continue right" v-else-if="form_name_success && windowWidth < widthXs">
-                        <i class="fas fa-arrow-right" @click="scrollToTop" ></i>
-                    </div>
-
-                    <!-- Form -->
-                    <form @submit.prevent="sendForm_name" autocomplete="off">
-
-                        <!-- Name -->
-                        <div class="box-form">
-                            <label for="name">Nome:</label>
-                            <input v-model="form_name.name"
-                                @blur="$v.form_name.name.$touch()"
-                                :class="{error: errorClass($v.form_name.name), valid: validClass($v.form_name.name)}"
-                                id="name">
-                            <p v-if="$v.form_name.name.$error"
-                                class="error-message">
-                                Il campo nome è richiesto
+                        <!-- Title Form -->
+                        <div class="title">
+                            <h2>Form Name</h2>
+                            <p>In questo form andremo ad inserire una stringa che può essere composta da lettere e
+                                numeri;
+                                l'unica richiesta è che la stringa non sia pari a zero caratteri.
                             </p>
                         </div>
 
-                        <!-- Submit -->
-                        <div>
-                            <button :disabled="$v.form_name.$invalid">Conferma</button>
-                        </div>
+                        <!-- Form -->
+                        <form @submit.prevent="sendForm_name" autocomplete="off">
 
-                    </form>
+                            <!-- Name -->
+                            <div class="box-form">
+                                <label for="name"></label>
+                                <input v-model="form_name.name"
+                                    @blur="$v.form_name.name.$touch()"
+                                    :class="{error: errorClass($v.form_name.name), valid: validClass($v.form_name.name)}"
+                                    id="name"
+                                    placeholder="inserisci qui">
+                                <p v-if="$v.form_name.name.$error"
+                                    class="error-message">
+                                    Il campo nome è richiesto
+                                </p>
+                            </div>
+
+                            <!-- Submit -->
+                            <div>
+                                <button :disabled="$v.form_name.$invalid">Conferma</button>
+                            </div>
+
+                        </form>
+
+                    </div>
+
+                    <!-- Position Absolute -->
+                    <!-- Continue Tag -->
+                    <div class="continue bottom" v-if="form_name_success && windowWidth > widthXs && !formAge">
+                        <a href="#form-age" @click="formAgeTrue()"><i class="fas fa-arrow-down"></i></a>
+                    </div>
+
+                    <div class="continue right" v-else-if="form_name_success && windowWidth < widthXs && !formAge">
+                        <a href="#form-age" @click="formAgeTrue()"><i class="fas fa-arrow-right"></i></a>
+                    </div>
 
                 </div>
                 <!-- end Form 1 -->
 
                 <!-- Form 2 -->
-                <div class="container display-flex " v-if="form_name_success">
+                <div id="form-age" class="container display-flex " v-if="form_name_success">
 
                     <!-- Title Form -->
                     <div class="title">
@@ -112,12 +119,12 @@
                     </div>
 
                     <!-- Continue Tag -->
-                    <div class="continue bottom" v-if="form_name_success && windowWidth > widthXs">
-                        <i class="fas fa-arrow-down" @click="scrollToTop" ></i>
+                    <div class="continue bottom" v-if="form_age_success && windowWidth > widthXs && !formEmail">
+                        <a href="#form-email" @click="formEmailTrue()"><i class="fas fa-arrow-down"></i></a>
                     </div>
 
-                    <div class="continue right" v-else-if="form_name_success && windowWidth < widthXs">
-                        <i class="fas fa-arrow-right" @click="scrollToTop" ></i>
+                    <div class="continue right" v-else-if="form_age_success && windowWidth < widthXs && !formEmail">
+                        <a href="#form-email" @click="formEmailTrue()"><i class="fas fa-arrow-right"></i></a>
                     </div>
 
                     <!-- Form -->
@@ -149,7 +156,6 @@
                         <!-- Submit -->
                         <div>
                             <button :disabled="$v.form_age.$invalid">Conferma</button>
-                            <a @click="scrollToTop" v-if="form_age_success">Continua</a>
                         </div>
 
                     </form>
@@ -159,7 +165,7 @@
 
                 <!-- Form 3 -->
                 <!-- v-if="form_name_success" -->
-                <div class="container display-flex " v-if="form_age_success">
+                <div id="form-email" class="container display-flex " v-if="form_age_success">
 
                     <!-- Title Form -->
                     <div class="title">

@@ -22,6 +22,8 @@ new Vue({
     displayMobile: false,
     windowWidth: 0,
     widthXs: 600,
+    formAge: false,
+    formEmail: false,
 
     /* Form Object */
     form_name: {
@@ -117,13 +119,15 @@ new Vue({
     },
 
     /* end Send Form */
-    // Funzione scroll to Top
-    scrollToTop: function scrollToTop() {
-      window.scrollTo(0, 3000);
-    },
     // Funzione che mi permette di vedere i width pixel 
     getWindowWidth: function getWindowWidth() {
       this.windowWidth = document.documentElement.clientWidth;
+    },
+    formAgeTrue: function formAgeTrue() {
+      this.formAge = true;
+    },
+    formEmailTrue: function formEmailTrue() {
+      this.formEmail = true;
     }
   },
   // Rimuove l'evento in ascolto getWindowWidth
