@@ -221,7 +221,7 @@ main .container .box-nav-lg i {
   }
   main .container {
     position: relative;
-    padding: 15px;
+    padding: 30px 15px 15px 15px;
   }
   main .container .box-form,
 main .container .title,
