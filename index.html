@@ -95,9 +95,9 @@
                     </div>
 
                     <!-- Nav XS -->
-                    <div  class="box-nav-xs" v-if="windowWidth < widthXs && form_name_success">
+                    <div class="box-nav-xs" v-if="windowWidth < widthXs && form_name_success">
                         <a href="#form-age" @click="formAgeTrue(href)">
-                            Continua <i class="fas fa-arrow-right"></i>
+                            Continua <i class="fas fa-long-arrow-alt-right"></i>
                         </a>
                     </div>
 
@@ -108,13 +108,6 @@
                 <div id="form-age" class="container display-flex"
                     :class="{'flex-container-xs' : windowWidth < widthXs }"
                     v-if="form_name_success">
-
-                    <!-- Nav XS -->
-                    <div v-if="windowWidth < widthXs" class="box-nav-xs return">
-                        <a href="#form-name">
-                            <i class="fas fa-arrow-left"></i> Indietro 
-                        </a>
-                    </div>
 
                     <!-- Form -->
                     <form @submit.prevent="sendForm_age" autocomplete="off" class="display-flex">
@@ -172,11 +165,19 @@
                     </div>
 
                     <!-- Nav XS -->
-                    <div v-if="windowWidth < widthXs && form_age_success" class="box-nav-xs">
-                        <a href="#form-email" @click="formEmailTrue()">
-                            Continua <i class="fas fa-arrow-right"></i>
+                    <div v-if="windowWidth < widthXs" class="box-nav-xs return">
+                        <a href="#form-name">
+                            <i class="fas fa-long-arrow-alt-left"></i> Indietro
                         </a>
                     </div>
+                    
+                    <div v-if="windowWidth < widthXs && form_age_success" class="box-nav-xs">
+                        <a href="#form-email" @click="formEmailTrue()">
+                            Continua <i class="fas fa-long-arrow-alt-right"></i>
+                        </a>
+                    </div>
+
+                    
 
                 </div>
                 <!-- end Form 2 -->
@@ -185,13 +186,6 @@
                 <div id="form-email" class="container display-flex"
                     :class="{'flex-container-xs' : windowWidth < widthXs }"
                     v-if="form_age_success">
-
-                    <!-- Nav XS -->
-                    <div v-if="windowWidth < widthXs" class="box-nav-xs return">
-                        <a href="#form-age">
-                            <i class="fas fa-arrow-left"></i> Indietro 
-                        </a>
-                    </div>
 
                     <!-- Form -->
                     <form @submit.prevent="sendForm_email" autocomplete="off" class="display-flex">
@@ -251,6 +245,13 @@
                             <a href="#" class="disable"><i class="fas fa-chevron-down"></i></a>
                             <a href="#form-age"><i class="fas fa-chevron-up"></i></a>
                         </nav>
+                    </div>
+
+                    <!-- Nav XS -->
+                    <div v-if="windowWidth < widthXs" class="box-nav-xs return">
+                        <a href="#form-age">
+                            <i class="fas fa-long-arrow-alt-left"></i> Indietro
+                        </a>
                     </div>
 
                 </div>

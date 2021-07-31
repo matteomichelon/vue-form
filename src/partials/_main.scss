@@ -178,14 +178,20 @@ main {
                 bottom: 15%;
                 right: 15%;
 
+                a{
+                    text-decoration: none;
+                    color: #95D0CE;
+                    font-weight: 700;
+                    font-size: 16px;
+                }
+
                 &.return {
                     left: 15%;
                 }
 
-                i {
+                i{
                     vertical-align: middle;
                 }
-
             }
         }
     }
