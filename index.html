@@ -57,8 +57,8 @@
                         <!-- Title Form -->
                         <div class="title">
                             <h2>Form Name</h2>
-                            <p>In questo form andremo ad inserire una stringa che può essere composta da lettere e
-                                numeri, l'unica richiesta è che la stringa non sia pari a zero caratteri.
+                            <p>In questo form andremo ad inserire una stringa che può contenere lettere e
+                                numeri, l'unica richiesta è che la stringa non sia vuota.
                             </p>
                         </div>
 
@@ -69,16 +69,17 @@
                                 @blur="$v.form_name.name.$touch()"
                                 :class="{error: errorClass($v.form_name.name), valid: validClass($v.form_name.name)}"
                                 id="name"
-                                placeholder="Scrivi qui la risposta...">
-                            <div v-if="$v.form_name.name.$error"
+                                placeholder="Scrivi qui stringa...">
+                            <span v-if="$v.form_name.name.$error"
                                 class="error-message">
+                                <i class="fas fa-exclamation-triangle"></i>
                                 Il campo nome è richiesto
-                            </div>
+                            </span>
                         </div>
 
                         <!-- Submit -->
-                        <div>
-                            <button :disabled="$v.form_name.$invalid">Conferma</button>
+                        <div class="button-form" v-if="!$v.form_name.name.$error">
+                            <button>Ok <i class="fas fa-check"></i></button>
                         </div>
 
                     </form>
@@ -100,7 +101,7 @@
                 <div id="form-age" class="container" v-if="form_name_success">
 
                     <!-- Form -->
-                    <form ref="art1" @submit.prevent="sendForm_age" autocomplete="off" class="display-flex">
+                    <form @submit.prevent="sendForm_age" autocomplete="off" class="display-flex">
 
                         <!-- Title Form -->
                         <div class="title">
@@ -112,30 +113,34 @@
 
                         <!-- Age -->
                         <div class="box-form">
-                            <label for="age">Age:</label>
+                            <label for="age"></label>
                             <input v-model.number="form_age.age"
                                 @blur="$v.form_age.age.$touch()"
                                 :class="{error: errorClass($v.form_age.age), valid: validClass($v.form_age.age)}"
-                                id="age">
-                            <div v-if="$v.form_age.age.$error">
+                                id="age"
+                                placeholder="Scrivi qui il numero...">
+                            <span v-if="$v.form_age.age.$error">
                                 <p v-if="!$v.form_age.age.required"
                                     class="error-message">
+                                    <i class="fas fa-exclamation-triangle"></i>
                                     Inserisci l'età per proseguire
                                 </p>
                                 <p v-else-if="!$v.form_age.age.integer"
                                     class="error-message">
+                                    <i class="fas fa-exclamation-triangle"></i>
                                     Il campo accetta solo numeri
                                 </p>
                                 <p v-else-if="!$v.form_age.age.minMaxAge"
                                     class="error-message">
+                                    <i class="fas fa-exclamation-triangle"></i>
                                     Devi aggiungere un dato compreso tra 12 e 120
                                 </p>
-                            </div>
+                            </span>
                         </div>
 
                         <!-- Submit -->
-                        <div>
-                            <button :disabled="$v.form_age.$invalid">Conferma</button>
+                        <div class="button-form" v-if="!$v.form_age.age.$error">
+                            <button>Ok <i class="fas fa-check"></i></button>
                         </div>
 
                     </form>
@@ -154,51 +159,56 @@
                 <!-- end Form 2 -->
 
                 <!-- Form 3 -->
-                <!-- v-if="form_name_success" -->
-                <div id="form-email" class="container display-flex " v-if="form_age_success">
-
-                    <!-- Title Form -->
-                    <div class="title">
-                        <h2>Form Email</h2>
-                        <p>
-                            In questo form andremo ad inserire una mail, il campo non è obbligatorio
-                            se non è presente la spunta nella checkbox della newsletter.
-                            Se scriviamo senza aggiungere la spunta il tasto invia si disattiva.
-
-                        </p>
-                    </div>
+                <div id="form-email" class="container" v-if="form_age_success">
 
                     <!-- Form -->
-                    <form @submit.prevent="sendForm_email" autocomplete="off" v-if="form_age_success">
+                    <form @submit.prevent="sendForm_email" autocomplete="off" class="display-flex">
+
+                        <!-- Title Form -->
+                        <div class="title">
+                            <h2>Form Email</h2>
+                            <p>
+                                In questo form andremo ad inserire una mail, il campo non è obbligatorio
+                                se non è presente la spunta nella checkbox della newsletter.
+                                Se scriviamo senza aggiungere la spunta il tasto invia si disattiva.
+                            </p>
+                        </div>
 
                         <!-- Newsletter -->
-                        <div class="box-form">
-                            <label for="newsletter">Sottoscriviti alla nostra newsletter</label>
+                        <div class="box-newsletter">
+                            <label for="newsletter"></label>
                             <input v-model="form_email.newsletter"
                                 type="checkbox"
-                                id="newsletter">
+                                id="newsletter"
+                                placeholder="Inserisci qui l'indirizzo mail...">
+                            <span class="input-newsletter" @click="checkboxToggle()">
+                                <i class="fas fa-check" :class="{'display-block' : checkBlock}"></i>
+                            </span>
                         </div>
 
                         <!-- Email -->
                         <div class="box-form">
-                            <label for="email">Email:</label>
+                            <label for="email"></label>
                             <input v-model="form_email.email"
                                 @blur="$v.form_email.email.$touch()"
                                 :class="{error: errorClass($v.form_email.email), valid: validClass($v.form_email.email)}"
-                                id="email">
+                                id="email"
+                                placeholder="Inserisci un indirizzo email valido...">
                             <p v-if="!$v.form_email.email.email && $v.form_email.email.$error"
                                 class="error-message">
-                                L'indirizzo email inserito non è valido
+                                <i class="fas fa-exclamation-triangle"></i>
+                                L'indirizzo email inserito non è valido, esempio: "esempio@email.com"
                             </p>
                             <p v-if="!$v.form_email.email.required && $v.form_email.email.$error"
                                 class="error-message">
+                                <i class="fas fa-exclamation-triangle"></i>
                                 L'email è richiesta se vuoi aggiungerti alla nostra lista di newsletter
                             </p>
                         </div>
 
                         <!-- Submit -->
-                        <div>
-                            <button :disabled="$v.form_email.$invalid">Termina</button>
+                        <div class="button-form" v-if="!$v.form_email.email.$error">
+                            <button>Termina</button>
                         </div>
 
                     </form>

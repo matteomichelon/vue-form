@@ -19,6 +19,7 @@ new Vue( {
         widthXs: 600,
         formAge: false,
         formEmail: false,
+        checkBlock:false,
 
         /* Form Object */
         form_name: {
@@ -29,7 +30,7 @@ new Vue( {
         },
         form_email: {
             email: null,
-            newsletter: null
+            newsletter: false
         },
 
         /* Form Success */
@@ -114,6 +115,13 @@ new Vue( {
             }
         },
         /* end Send Form */
+
+        // Funzione toggle per aggiungere il check alla input 
+        // per avere la padronanza sugli stili css della checkbox
+        checkboxToggle(){
+            this.form_email.newsletter = !this.form_email.newsletter;
+            this.checkBlock = !this.checkBlock;
+        },
 
         // Funzione che mi permette di vedere i width pixel 
         getWindowWidth () {

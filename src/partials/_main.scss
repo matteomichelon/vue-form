@@ -1,6 +1,4 @@
 main {
-    width: 100vw;
-    height: 100vh;
     scroll-behavior: smooth;
     overflow-x: hidden;
 
@@ -15,8 +13,8 @@ main {
     }
 
     .container {
-        width: 100%;
-        height: 100%;
+        width: 100vw;
+        height: 100vh;
         padding: 50px;
 
         form {
@@ -25,10 +23,21 @@ main {
             flex-direction: column;
             justify-content: center;
             align-items: center;
+
+            .error-message {
+                display: inline-table;
+                margin-top: 20px;
+                background-color: #F7E6E6;
+                padding: 5px;
+                border-radius: 7px;
+                color: #AF0404;
+            }
         }
 
         .box-form,
-        .title {
+        .title,
+        .button-form,
+        .box-newsletter {
             width: 60%;
         }
 
@@ -37,28 +46,60 @@ main {
         }
 
         .box-form > input {
-            width: 100%;
-            font-family: inherit;
-            color: rgb(79, 176, 174);
-            padding-bottom: 10px;
-            border: none;
-            outline: none;
-            background-image: none;
-            background-position: initial;
-            background-size: initial;
-            background-repeat: initial;
-            background-attachment: initial;
-            background-origin: initial;
-            background-clip: initial;
-            transform: translateZ(0px);
-            font-size: 30px;
-            -webkit-font-smoothing: antialiased;
-            line-height: unset;
-            -webkit-text-fill-color: rgba(79, 176, 174, 0.3);
-            animation: 1ms ease 0s 1 normal none running native-autofill-in;
-            transition: background-color 1e+08s ease 0s, box-shadow 0.1s ease-out 0s;
-            box-shadow: rgb(79 176 174 / 30%) 0px 1px;
-            background-color: transparent !important;
+            @include input-style
+        }
+
+        .button-form {
+            padding-top: 20px;
+
+            i {
+                font-size: 11px;
+                padding-left: 2px;
+                vertical-align: middle;
+            }
+        }
+
+        .box-newsletter {
+            box-shadow: none;
+            padding-bottom: 20px;
+
+            /* Per avere padronanza sugli stili della checkbox */
+            input {
+                visibility: hidden;
+                position: absolute;
+            }
+
+            /* Checkbox collegata con la input */
+            .input-newsletter {
+                width: 20px;
+                height: 20px;
+                display: block;
+                border-radius: 4px;
+                border: 1px solid rgba(79, 176, 174, 0.6);
+                position: relative;
+
+                i {
+                    font-size: smaller;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    color: rgb(79, 176, 174);
+                    display: none;
+
+                    &.display-block {
+                        display: block;
+                    }
+                }
+
+                &:checked {
+
+                    i {
+                        display: block;
+                    }
+
+                }
+            }
         }
 
         .continue {

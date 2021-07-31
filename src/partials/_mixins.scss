@@ -1,0 +1,43 @@
+@mixin input-style {
+    width: 100%;
+    font-family: inherit;
+    color: rgb(79, 176, 174);
+    padding-bottom: 10px;
+    border: none;
+    outline: none;
+    background-image: none;
+    background-position: initial;
+    background-size: initial;
+    background-repeat: initial;
+    background-attachment: initial;
+    background-origin: initial;
+    background-clip: initial;
+    transform: translateZ(0px);
+    font-size: 30px;
+    -webkit-font-smoothing: antialiased;
+    line-height: unset;
+    -webkit-text-fill-color: rgba(79, 176, 174, 0.6);
+    animation: 1ms ease 0s 1 normal none running native-autofill-in;
+    transition: background-color 1e+08s ease 0s, box-shadow 0.1s ease-out 0s;
+    box-shadow: rgb(79 176 174 / 30%) 0px 1px;
+    background-color: transparent !important;
+}
+
+@mixin button-style {
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 20px;
+    cursor: pointer;
+    transition-duration: 0.1s;
+    transition-property: background-color, color, border-color, opacity, box-shadow;
+    transition-timing-function: ease-out;
+    outline: none;
+    border: 1px solid transparent;
+    margin: 0px;
+    box-shadow: rgb(0 0 0 / 10%) 0px 3px 12px 0px;
+    padding: 6px 14px;
+    min-height: 40px;
+    background-color: rgb(79, 176, 174);
+    color: rgb(255, 255, 255);
+    border-radius: 4px;
+}

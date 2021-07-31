@@ -22,10 +22,14 @@ h2 {
 
 p {
     font-weight: unset;
-    font-size: 15px;
+    font-size: 19px;
     line-height: 28px;
     color: rgba(61, 61, 61, 0.7);
     text-align: left;
+}
+
+button{
+    @include button-style;
 }
 
 .wrapper {
