@@ -14,10 +14,11 @@
         integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
         crossorigin="anonymous" />
 
-    <!-- Link Noto Sans Font Google -->
+    <!-- Link Karla Font Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+    <link
+        href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
         rel="stylesheet">
 
     <!-- Script ajax -->
@@ -44,55 +45,43 @@
         <!-- Wrapper -->
         <section class="wrapper">
 
-            <!-- Logo -->
-            <!-- TODO -->
-            <!-- <div class="logo">
-                <img :src="'img/' + headerLogo" alt="logo">
-            </div> -->
-            <!-- end Logo -->
-
             <!-- MAIN -->
             <main :class="{'flex-direction-xs' : windowWidth < widthXs }">
 
                 <!-- Form 1 -->
-                <div id="form-name" class="container display-flex">
+                <div id="form-name" class="container">
 
-                    <div class="inner-container display-flex">
+                    <!-- Form -->
+                    <form @submit.prevent="sendForm_name" autocomplete="off" class="display-flex">
 
                         <!-- Title Form -->
                         <div class="title">
                             <h2>Form Name</h2>
                             <p>In questo form andremo ad inserire una stringa che può essere composta da lettere e
-                                numeri;
-                                l'unica richiesta è che la stringa non sia pari a zero caratteri.
+                                numeri, l'unica richiesta è che la stringa non sia pari a zero caratteri.
                             </p>
                         </div>
 
-                        <!-- Form -->
-                        <form @submit.prevent="sendForm_name" autocomplete="off">
-
-                            <!-- Name -->
-                            <div class="box-form">
-                                <label for="name"></label>
-                                <input v-model="form_name.name"
-                                    @blur="$v.form_name.name.$touch()"
-                                    :class="{error: errorClass($v.form_name.name), valid: validClass($v.form_name.name)}"
-                                    id="name"
-                                    placeholder="inserisci qui">
-                                <p v-if="$v.form_name.name.$error"
-                                    class="error-message">
-                                    Il campo nome è richiesto
-                                </p>
+                        <!-- Name -->
+                        <div class="box-form">
+                            <label for="name"></label>
+                            <input v-model="form_name.name"
+                                @blur="$v.form_name.name.$touch()"
+                                :class="{error: errorClass($v.form_name.name), valid: validClass($v.form_name.name)}"
+                                id="name"
+                                placeholder="Scrivi qui la risposta...">
+                            <div v-if="$v.form_name.name.$error"
+                                class="error-message">
+                                Il campo nome è richiesto
                             </div>
+                        </div>
 
-                            <!-- Submit -->
-                            <div>
-                                <button :disabled="$v.form_name.$invalid">Conferma</button>
-                            </div>
+                        <!-- Submit -->
+                        <div>
+                            <button :disabled="$v.form_name.$invalid">Conferma</button>
+                        </div>
 
-                        </form>
-
-                    </div>
+                    </form>
 
                     <!-- Position Absolute -->
                     <!-- Continue Tag -->
@@ -108,27 +97,18 @@
                 <!-- end Form 1 -->
 
                 <!-- Form 2 -->
-                <div id="form-age" class="container display-flex " v-if="form_name_success">
-
-                    <!-- Title Form -->
-                    <div class="title">
-                        <h2>Form Età</h2>
-                        <p>In questo form andremo ad inserire un numero interno compreso tra 12 e 120.
-                            Il campo inoltre non accetta l'inserimento di stringhe.
-                        </p>
-                    </div>
-
-                    <!-- Continue Tag -->
-                    <div class="continue bottom" v-if="form_age_success && windowWidth > widthXs && !formEmail">
-                        <a href="#form-email" @click="formEmailTrue()"><i class="fas fa-arrow-down"></i></a>
-                    </div>
-
-                    <div class="continue right" v-else-if="form_age_success && windowWidth < widthXs && !formEmail">
-                        <a href="#form-email" @click="formEmailTrue()"><i class="fas fa-arrow-right"></i></a>
-                    </div>
+                <div id="form-age" class="container" v-if="form_name_success">
 
                     <!-- Form -->
-                    <form ref="art1" @submit.prevent="sendForm_age" autocomplete="off">
+                    <form ref="art1" @submit.prevent="sendForm_age" autocomplete="off" class="display-flex">
+
+                        <!-- Title Form -->
+                        <div class="title">
+                            <h2>Form Età</h2>
+                            <p>In questo form andremo ad inserire un numero interno compreso tra 12 e 120.
+                                Il campo inoltre non accetta l'inserimento di stringhe.
+                            </p>
+                        </div>
 
                         <!-- Age -->
                         <div class="box-form">
@@ -159,6 +139,16 @@
                         </div>
 
                     </form>
+
+                    <!-- Position Absolute -->
+                    <!-- Continue Tag -->
+                    <div class="continue bottom" v-if="form_age_success && windowWidth > widthXs && !formEmail">
+                        <a href="#form-email" @click="formEmailTrue()"><i class="fas fa-arrow-down"></i></a>
+                    </div>
+
+                    <div class="continue right" v-else-if="form_age_success && windowWidth < widthXs && !formEmail">
+                        <a href="#form-email" @click="formEmailTrue()"><i class="fas fa-arrow-right"></i></a>
+                    </div>
 
                 </div>
                 <!-- end Form 2 -->

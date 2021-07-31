@@ -18,22 +18,47 @@ main {
         width: 100%;
         height: 100%;
         padding: 50px;
-        align-items: center;
-        justify-content: center;
 
-        .inner-container {
-            width: 90%;
-            height: 90%;
-            align-items: center;
+        form {
+            width: 100%;
+            height: 100%;
+            flex-direction: column;
             justify-content: center;
-            border-radius: 50px;
-            background: -webkit-linear-gradient(360deg, #dee1e1 10%, #f4f4f4 360%);
-            background-blend-mode: screen;
+            align-items: center;
+        }
+
+        .box-form,
+        .title {
+            width: 60%;
         }
 
         .title {
-            width: 60%;
-            padding: 50px;
+            padding: 50px 0 20px 0;
+        }
+
+        .box-form > input {
+            width: 100%;
+            font-family: inherit;
+            color: rgb(79, 176, 174);
+            padding-bottom: 10px;
+            border: none;
+            outline: none;
+            background-image: none;
+            background-position: initial;
+            background-size: initial;
+            background-repeat: initial;
+            background-attachment: initial;
+            background-origin: initial;
+            background-clip: initial;
+            transform: translateZ(0px);
+            font-size: 30px;
+            -webkit-font-smoothing: antialiased;
+            line-height: unset;
+            -webkit-text-fill-color: rgba(79, 176, 174, 0.3);
+            animation: 1ms ease 0s 1 normal none running native-autofill-in;
+            transition: background-color 1e+08s ease 0s, box-shadow 0.1s ease-out 0s;
+            box-shadow: rgb(79 176 174 / 30%) 0px 1px;
+            background-color: transparent !important;
         }
 
         .continue {
@@ -52,15 +77,6 @@ main {
                 top: 50%;
                 left: 50%;
                 transform: translate(-50%, -50%);
-            }
-        }
-
-        form {
-            width: 40%;
-            text-align: left;
-
-            input{
-                padding: 10px;
             }
         }
 

@@ -5,8 +5,7 @@
 }
 
 body {
-  font-family: "Noto Sans", sans-serif;
-  background-image: url("../img/background.jpg");
+  font-family: "Karla", sans-serif;
 }
 
 img {
@@ -15,27 +14,23 @@ img {
 }
 
 h2 {
-  text-align: center;
-  font-size: 2.3em;
-  font-weight: normal;
+  font-weight: unset;
+  font-size: 24px;
+  line-height: 32px;
   padding-bottom: 15px;
 }
 
 p {
-  line-height: 1.5;
+  font-weight: unset;
+  font-size: 15px;
+  line-height: 28px;
+  color: rgba(61, 61, 61, 0.7);
+  text-align: left;
 }
 
 .wrapper {
   width: 100%;
   height: 100%;
-}
-
-.logo {
-  width: 10%;
-  height: auto;
-  position: fixed;
-  top: 20px;
-  left: 50px;
 }
 
 .display-flex {
@@ -62,21 +57,45 @@ main .container {
   width: 100%;
   height: 100%;
   padding: 50px;
-  align-items: center;
-  justify-content: center;
 }
-main .container .inner-container {
-  width: 90%;
-  height: 90%;
-  align-items: center;
+main .container form {
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
   justify-content: center;
-  border-radius: 50px;
-  background: -webkit-linear-gradient(360deg, #dee1e1 10%, #f4f4f4 360%);
-  background-blend-mode: screen;
+  align-items: center;
 }
+main .container .box-form,
 main .container .title {
   width: 60%;
-  padding: 50px;
+}
+main .container .title {
+  padding: 50px 0 20px 0;
+}
+main .container .box-form > input {
+  width: 100%;
+  font-family: inherit;
+  color: #4fb0ae;
+  padding-bottom: 10px;
+  border: none;
+  outline: none;
+  background-image: none;
+  background-position: initial;
+  background-size: initial;
+  background-repeat: initial;
+  background-attachment: initial;
+  background-origin: initial;
+  background-clip: initial;
+  transform: translateZ(0px);
+  font-size: 30px;
+  -webkit-font-smoothing: antialiased;
+  line-height: unset;
+  -webkit-text-fill-color: rgba(79, 176, 174, 0.3);
+  -webkit-animation: 1ms ease 0s 1 normal none running native-autofill-in;
+          animation: 1ms ease 0s 1 normal none running native-autofill-in;
+  transition: background-color 100000000s ease 0s, box-shadow 0.1s ease-out 0s;
+  box-shadow: rgba(79, 176, 174, 0.3) 0px 1px;
+  background-color: transparent !important;
 }
 main .container .continue {
   position: absolute;
@@ -94,11 +113,4 @@ main .container .continue a > i {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-}
-main .container form {
-  width: 40%;
-  text-align: left;
-}
-main .container form input {
-  padding: 10px;
 }
