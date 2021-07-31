@@ -1,8 +1,8 @@
 main {
-    scroll-behavior: smooth;
-    overflow-x: hidden;
+
     width: 100vw;
     height: 100vh;
+    scroll-behavior: smooth;    
 
     .container {
         width: 100vw;
@@ -165,7 +165,7 @@ main {
                 width: 90%;
             }
 
-            form{
+            form {
                 justify-content: flex-start;
             }
 
@@ -178,7 +178,7 @@ main {
                 bottom: 15%;
                 right: 15%;
 
-                a{
+                a {
                     text-decoration: none;
                     color: #95D0CE;
                     font-weight: 700;
@@ -189,7 +189,7 @@ main {
                     left: 15%;
                 }
 
-                i{
+                i {
                     vertical-align: middle;
                 }
             }

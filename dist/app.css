@@ -6,6 +6,9 @@
 
 body {
   font-family: "Karla", sans-serif;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 img {
@@ -65,10 +68,9 @@ button {
 }
 
 main {
-  scroll-behavior: smooth;
-  overflow-x: hidden;
   width: 100vw;
   height: 100vh;
+  scroll-behavior: smooth;
 }
 main .container {
   width: 100vw;

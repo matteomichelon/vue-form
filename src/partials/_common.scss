@@ -6,6 +6,9 @@
 
 body {
     font-family: 'Karla', sans-serif;
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 img {
@@ -28,7 +31,7 @@ p {
     text-align: left;
 }
 
-button{
+button {
     @include button-style;
 }
 
@@ -41,10 +44,10 @@ button{
     display: flex;
 }
 
-.flex-direction-row{
+.flex-direction-row {
     flex-direction: row;
 }
 
-.flex-direction-column{
+.flex-direction-column {
     flex-direction: column;
 }
