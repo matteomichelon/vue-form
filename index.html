@@ -49,7 +49,8 @@
             <main :class="{'flex-direction-xs' : windowWidth < widthXs }">
 
                 <!-- Form 1 -->
-                <div id="form-name" class="container">
+                <div id="form-name" class="container display-flex"
+                    :class="{'flex-container-xs' : windowWidth < widthXs }">
 
                     <!-- Form -->
                     <form @submit.prevent="sendForm_name" autocomplete="off" class="display-flex">
@@ -69,7 +70,7 @@
                                 @blur="$v.form_name.name.$touch()"
                                 :class="{error: errorClass($v.form_name.name), valid: validClass($v.form_name.name)}"
                                 id="name"
-                                placeholder="Scrivi qui stringa...">
+                                placeholder="Scrivi qui la stringa...">
                             <span v-if="$v.form_name.name.$error"
                                 class="error-message">
                                 <i class="fas fa-exclamation-triangle"></i>
@@ -84,21 +85,35 @@
 
                     </form>
 
-                    <!-- Position Absolute -->
-                    <!-- Continue Tag -->
-                    <div class="continue bottom" v-if="form_name_success && windowWidth > widthXs && !formAge">
-                        <a href="#form-age" @click="formAgeTrue()"><i class="fas fa-arrow-down"></i></a>
+                    <!-- Nav LG -->
+                    <div class="box-nav-lg" v-if="windowWidth > widthXs">
+                        <nav class="footer-navigation">
+                            <a href="#form-age" @click="formAgeTrue(href)"
+                                :class="{disable : ! form_name_success && windowWidth > widthXs && !formAge}"><i
+                                    class="fas fa-chevron-down"></i></a>
+                            <a href="#" class="disable"><i class="fas fa-chevron-up"></i></a>
+                        </nav>
                     </div>
 
-                    <div class="continue right" v-else-if="form_name_success && windowWidth < widthXs && !formAge">
-                        <a href="#form-age" @click="formAgeTrue()"><i class="fas fa-arrow-right"></i></a>
+                    <!-- Nav XS -->
+                    <div v-if="windowWidth < widthXs && form_name_success" class="box-nav-xs">
+                        <a href="#form-age" @click="formAgeTrue(href)">
+                            <i class="fas fa-chevron-right"></i>
+                        </a>
                     </div>
 
                 </div>
                 <!-- end Form 1 -->
 
                 <!-- Form 2 -->
-                <div id="form-age" class="container" v-if="form_name_success">
+                <div id="form-age" class="container display-flex"
+                    :class="{'flex-container-xs' : windowWidth < widthXs }"
+                    v-if="form_name_success">
+
+                    <!-- Nav XS -->
+                    <div v-if="windowWidth < widthXs" class="box-nav-xs">
+                        <a href="#form-name"><i class="fas fa-chevron-left"></i></a>
+                    </div>
 
                     <!-- Form -->
                     <form @submit.prevent="sendForm_age" autocomplete="off" class="display-flex">
@@ -145,21 +160,35 @@
 
                     </form>
 
-                    <!-- Position Absolute -->
-                    <!-- Continue Tag -->
-                    <div class="continue bottom" v-if="form_age_success && windowWidth > widthXs && !formEmail">
-                        <a href="#form-email" @click="formEmailTrue()"><i class="fas fa-arrow-down"></i></a>
+                    <!-- Nav LG -->
+                    <div class="box-nav-lg" v-if="windowWidth > widthXs">
+                        <nav class="footer-navigation">
+                            <a href="#form-email" @click="formEmailTrue()"
+                                :class="{disable : ! form_age_success && windowWidth > widthXs && !formEmail}"><i
+                                    class="fas fa-chevron-down"></i></a>
+                            <a href="#form-name"><i class="fas fa-chevron-up"></i></a>
+                        </nav>
                     </div>
 
-                    <div class="continue right" v-else-if="form_age_success && windowWidth < widthXs && !formEmail">
-                        <a href="#form-email" @click="formEmailTrue()"><i class="fas fa-arrow-right"></i></a>
+                    <!-- Nav XS -->
+                    <div v-if="windowWidth < widthXs && form_age_success" class="box-nav-xs">
+                        <a href="#form-email" @click="formEmailTrue()">
+                            <i class="fas fa-chevron-right"></i>
+                        </a>
                     </div>
 
                 </div>
                 <!-- end Form 2 -->
 
                 <!-- Form 3 -->
-                <div id="form-email" class="container" v-if="form_age_success">
+                <div id="form-email" class="container display-flex"
+                    :class="{'flex-container-xs' : windowWidth < widthXs }"
+                    v-if="form_age_success">
+
+                    <!-- Nav XS -->
+                    <div v-if="windowWidth < widthXs" class="box-nav-xs">
+                        <a href="#form-age"><i class="fas fa-chevron-left"></i></a>
+                    </div>
 
                     <!-- Form -->
                     <form @submit.prevent="sendForm_email" autocomplete="off" class="display-flex">
@@ -193,11 +222,11 @@
                                 @blur="$v.form_email.email.$touch()"
                                 :class="{error: errorClass($v.form_email.email), valid: validClass($v.form_email.email)}"
                                 id="email"
-                                placeholder="Inserisci un indirizzo email valido...">
+                                placeholder="esempio@email.it...">
                             <p v-if="!$v.form_email.email.email && $v.form_email.email.$error"
                                 class="error-message">
                                 <i class="fas fa-exclamation-triangle"></i>
-                                L'indirizzo email inserito non è valido, esempio: "esempio@email.com"
+                                L'indirizzo email inserito non è valido
                             </p>
                             <p v-if="!$v.form_email.email.required && $v.form_email.email.$error"
                                 class="error-message">
@@ -212,6 +241,14 @@
                         </div>
 
                     </form>
+
+                    <!-- Nav LG -->
+                    <div class="box-nav-lg" v-if="windowWidth > widthXs">
+                        <nav class="footer-navigation">
+                            <a href="#" class="disable"><i class="fas fa-chevron-down"></i></a>
+                            <a href="#form-age"><i class="fas fa-chevron-up"></i></a>
+                        </nav>
+                    </div>
 
                 </div>
                 <!-- end Form 3 -->

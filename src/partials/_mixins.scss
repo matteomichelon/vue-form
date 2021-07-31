@@ -41,3 +41,10 @@
     color: rgb(255, 255, 255);
     border-radius: 4px;
 }
+
+@mixin i-nav-style {
+    padding: 10px;
+    color: #F7E6E6;
+    background-color: #22ad96;
+    border-radius: 10px;
+}

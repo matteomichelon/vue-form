@@ -45,7 +45,6 @@ new Vue( {
         form_name: {
             name: {
                 required: validators.required, // $v.form.name.required
-                //format
             }
         },
 
@@ -128,13 +127,14 @@ new Vue( {
             this.windowWidth = document.documentElement.clientWidth;
         },
 
-        formAgeTrue(){
+        // Funzioni per Nav
+        formAgeTrue(test){
             this.formAge = true;
         },
 
         formEmailTrue(){
             this.formEmail = true;
-        }
+        },
     },
 
     // Rimuove l'evento in ascolto getWindowWidth

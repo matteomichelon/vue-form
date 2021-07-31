@@ -1,6 +1,8 @@
 main {
     scroll-behavior: smooth;
     overflow-x: hidden;
+    width: 100vw;
+    height: 100vh;
 
     // For Mobile Device
     &.flex-direction-xs {
@@ -16,6 +18,14 @@ main {
         width: 100vw;
         height: 100vh;
         padding: 50px;
+        flex-direction: column;
+
+        &.flex-container-xs {
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px;
+        }
 
         form {
             width: 100%;
@@ -120,6 +130,39 @@ main {
                 transform: translate(-50%, -50%);
             }
         }
+
+        .box-nav-lg {
+            display: flex;
+            -webkit-box-pack: end;
+            justify-content: flex-end;
+
+            .footer-navigation {
+                display: flex;
+                width: 90px;
+                justify-content: space-around;
+                align-items: center;
+
+                a.disable {
+                    i {
+                        color: #9c9898;
+                        background-color: #ade2d9;
+                    }
+                }
+            }
+
+            i {
+                @include i-nav-style;
+            }
+        }
+
+        .box-nav-xs {
+
+            i {
+                @include i-nav-style;
+
+            }
+        }
+
 
     }
 

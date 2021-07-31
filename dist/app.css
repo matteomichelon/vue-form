@@ -56,9 +56,19 @@ button {
   display: flex;
 }
 
+.flex-direction-row {
+  flex-direction: row;
+}
+
+.flex-direction-column {
+  flex-direction: column;
+}
+
 main {
   scroll-behavior: smooth;
   overflow-x: hidden;
+  width: 100vw;
+  height: 100vh;
 }
 main.flex-direction-xs {
   display: flex;
@@ -74,6 +84,13 @@ main .container {
   width: 100vw;
   height: 100vh;
   padding: 50px;
+  flex-direction: column;
+}
+main .container.flex-container-xs {
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
 }
 main .container form {
   width: 100%;
@@ -181,4 +198,30 @@ main .container .continue a > i {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+main .container .box-nav-lg {
+  display: flex;
+  justify-content: flex-end;
+}
+main .container .box-nav-lg .footer-navigation {
+  display: flex;
+  width: 90px;
+  justify-content: space-around;
+  align-items: center;
+}
+main .container .box-nav-lg .footer-navigation a.disable i {
+  color: #9c9898;
+  background-color: #ade2d9;
+}
+main .container .box-nav-lg i {
+  padding: 10px;
+  color: #F7E6E6;
+  background-color: #22ad96;
+  border-radius: 10px;
+}
+main .container .box-nav-xs i {
+  padding: 10px;
+  color: #F7E6E6;
+  background-color: #22ad96;
+  border-radius: 10px;
 }
