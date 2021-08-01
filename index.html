@@ -113,8 +113,8 @@
                         <!-- Submit -->
                         <div class="button-form" v-if="!$v.form_name.name.$error">
                             <button>Ok <i class="fas fa-check"></i></button>
-                            <div v-if="form_name_success && submitStatus === 'OK' ">premi <span>Enter <i
-                                        class="fas fa-level-down-alt"></i></span></div>
+                            <div v-if="form_name_success && submitStatus === 'OK' && windowWidth > widthXs">
+                                premi <span>Invio <i class="fas fa-level-down-alt"></i></span></div>
                         </div>
 
                     </form>
@@ -198,8 +198,10 @@
                         <!-- Submit -->
                         <div class="button-form" v-if="!$v.form_age.age.$error">
                             <button>Ok <i class="fas fa-check"></i></button>
-                            <div v-if="form_age_success && submitStatus === 'OK'">premi <span>Enter <i
-                                        class="fas fa-level-down-alt"></i></span></div>
+                            <div v-if="form_age_success && submitStatus === 'OK' && windowWidth > widthXs">premi
+                                <span>Invio <i
+                                        class="fas fa-level-down-alt"></i></span>
+                            </div>
                         </div>
 
                     </form>

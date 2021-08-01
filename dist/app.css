@@ -53,7 +53,7 @@ button {
   padding: 6px 14px;
   min-height: 40px;
   background-color: #4fb0ae;
-  color: #F7E6E6;
+  color: #FEFEFE;
   border-radius: 4px;
 }
 button:hover {
@@ -197,7 +197,7 @@ main .container form {
 main .container form .error-message {
   display: inline-table;
   margin-top: 20px;
-  background-color: #F7E6E6;
+  background-color: #FEFEFE;
   padding: 5px;
   border-radius: 7px;
   color: #AF0404;
