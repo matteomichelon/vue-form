@@ -17,8 +17,7 @@ new Vue({
 
   /* DATA */
   data: {
-    headerLogo: 'logo.png',
-    background_image: 'background.jpg',
+    formStart: false,
     displayMobile: false,
     windowWidth: 0,
     widthXs: 600,
@@ -77,6 +76,10 @@ new Vue({
 
   /* METHODS */
   methods: {
+    // Funzione per far accedere al form
+    startForm: function startForm() {
+      formStart = true;
+    },
     // Funzione per la validazione del campo
     // Deve avere un paramentro. Esempio: $v.form.email
     validClass: function validClass(fieldForm) {

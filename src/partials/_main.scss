@@ -18,15 +18,15 @@ main {
             .error-message {
                 display: inline-table;
                 margin-top: 20px;
-                background-color: #F7E6E6;
+                background-color: $white-color;
                 padding: 5px;
                 border-radius: 7px;
-                color: #AF0404;
+                color: $error-color;
             }
 
             .submit-status p {
                 padding-top: 10px;
-                color: rgba(79, 176, 174, 0.4);
+                color: $green-color-soft;
             }
         }
 
@@ -54,15 +54,15 @@ main {
                 vertical-align: middle;
             }
 
-            div{
+            div {
                 display: inline;
                 margin-left: 10px;
 
-                span{
+                span {
                     font-weight: bold;
                 }
 
-                i{
+                i {
                     transform: rotate(90deg);
                 }
             }
@@ -79,7 +79,7 @@ main {
             }
 
             .text {
-                color: rgba(61, 61, 61, 0.7);
+                color: $primary-color;
             }
 
             /* Checkbox collegata con la input */
@@ -100,7 +100,7 @@ main {
                     top: 50%;
                     left: 50%;
                     transform: translate(-50%, -50%);
-                    color: rgb(79, 176, 174);
+                    color: $green-color;
                     display: none;
 
                     &.display-block {
@@ -182,7 +182,6 @@ main {
         .container {
             position: relative;
             padding: 30px 15px 15px 15px;
-            //scroll-behavior: smooth;
 
             .box-form,
             .title,

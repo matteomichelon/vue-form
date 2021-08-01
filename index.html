@@ -44,9 +44,29 @@
 
         <!-- Wrapper -->
         <section class="wrapper">
+            
+            
+            <div class="intro display-flex" :class="{ 'display-none' : formStart }">
+
+                <div class="image">
+                    <img src="./img/treedom2.png" alt="Treedom Logo">
+                </div>
+
+                <div class="text-intro">
+                    <h1>Coding Challenge Treedom</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis quos placeat facere molestiae
+                        deserunt a unde id veritatis distinctio! Quia omnis perspiciatis consequuntur eos, minus
+                        repudiandae explicabo exercitationem atque voluptas!</p>
+                </div>
+
+                <div class="start display-flex">
+                    <button @click="formStart = true">Inizia</button>
+                </div>
+
+            </div>
 
             <!-- MAIN -->
-            <main>
+            <main :class="{'display-none' : !formStart}">
 
                 <!-- Form 1 -->
                 <div id="form-name" class="container">

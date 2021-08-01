@@ -17,6 +17,11 @@ img {
     height: auto;
 }
 
+h1{
+    padding: 20px 0;
+    font-size: 55px;
+}
+
 h2 {
     font-weight: unset;
     font-size: 24px;
@@ -28,7 +33,7 @@ p {
     font-weight: unset;
     font-size: 19px;
     line-height: 28px;
-    color: rgba(61, 61, 61, 0.7);
+    color: $primary-color;
     text-align: left;
 }
 
@@ -37,14 +42,14 @@ button {
 
     &:hover {
         @include transition-hover;
-        background-color: #62c047;
+        background-color: $secondary-color;
     }
 }
 
 .fa-long-arrow-alt-left{
     &:hover{
         @include transition-hover;
-        color: #62c047;
+        color: $secondary-color;
     }
 }
 
@@ -55,6 +60,14 @@ button {
 
 .display-flex {
     display: flex;
+}
+
+.display-none{
+    display: none;
+}
+
+.display-block{
+    display: block;
 }
 
 /* Error Transition */

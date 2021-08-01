@@ -1,3 +1,4 @@
+/* COLORS */
 * {
   margin: 0;
   padding: 0;
@@ -15,6 +16,11 @@ body {
 img {
   width: 100%;
   height: auto;
+}
+
+h1 {
+  padding: 20px 0;
+  font-size: 55px;
 }
 
 h2 {
@@ -47,19 +53,19 @@ button {
   padding: 6px 14px;
   min-height: 40px;
   background-color: #4fb0ae;
-  color: white;
+  color: #F7E6E6;
   border-radius: 4px;
 }
 button:hover {
   transform: scale(1.1, 1.1);
   transition: 0.5s;
-  background-color: #62c047;
+  background-color: #85B973;
 }
 
 .fa-long-arrow-alt-left:hover {
   transform: scale(1.1, 1.1);
   transition: 0.5s;
-  color: #62c047;
+  color: #85B973;
 }
 
 .wrapper {
@@ -69,6 +75,14 @@ button:hover {
 
 .display-flex {
   display: flex;
+}
+
+.display-none {
+  display: none;
+}
+
+.display-block {
+  display: block;
 }
 
 /* Error Transition */
@@ -133,6 +147,40 @@ button:hover {
     transform: scale(1);
   }
 }
+.intro {
+  flex-direction: column;
+  padding: 50px 0;
+}
+.intro.display-none {
+  transition: opacity 1s ease-out;
+  opacity: 0;
+}
+.intro .image {
+  width: 46%;
+  margin: auto;
+}
+.intro .text-intro {
+  text-align: center;
+  width: 80%;
+  margin: auto;
+}
+.intro .text-intro p {
+  text-align: center;
+}
+.intro .start {
+  padding: 30px 0;
+  justify-content: center;
+}
+
+@media screen and (max-width: 600px) {
+  h1 {
+    font-size: 30px;
+  }
+
+  p {
+    font-size: px;
+  }
+}
 main {
   width: 100vw;
   height: 100vh;
@@ -189,7 +237,7 @@ main .container .box-form > input {
   font-size: 30px;
   -webkit-font-smoothing: antialiased;
   line-height: unset;
-  -webkit-text-fill-color: rgba(79, 176, 174, 0.6);
+  -webkit-text-fill-color: rgba(79, 176, 174, 0.4);
   -webkit-animation: 1ms ease 0s 1 normal none running native-autofill-in;
           animation: 1ms ease 0s 1 normal none running native-autofill-in;
   transition: background-color 100000000s ease 0s, box-shadow 0.1s ease-out 0s;
@@ -286,7 +334,7 @@ main .container .box-nav-lg .footer-navigation a.disable i {
 main .container .box-nav-lg i {
   padding: 10px;
   color: #F7E6E6;
-  background-color: #22ad96;
+  background-color: #85B973;
   border-radius: 10px;
 }
 
