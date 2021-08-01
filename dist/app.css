@@ -49,6 +49,11 @@ button {
   color: white;
   border-radius: 4px;
 }
+button:hover {
+  transform: scale(1.1, 1.1);
+  transition: 0.5s;
+  background-color: #62c047;
+}
 
 .wrapper {
   width: 100%;
@@ -59,14 +64,39 @@ button {
   display: flex;
 }
 
-.flex-direction-row {
-  flex-direction: row;
+/* Error Transition */
+.transition-enter-active {
+  -webkit-animation: transition-in 0.5s;
+          animation: transition-in 0.5s;
 }
 
-.flex-direction-column {
-  flex-direction: column;
+.transition-leave-active {
+  animation: transition-in 0.5s reverse;
 }
 
+@-webkit-keyframes transition-in {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes transition-in {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
 main {
   width: 100vw;
   height: 100vh;

@@ -106,19 +106,31 @@ new Vue({
       }
     },
     sendForm_age: function sendForm_age() {
+      var _this2 = this;
+
       this.$v.form_age.$touch();
 
       if (!this.$v.form_age.$invalid) {
-        console.log('📝 Form Submitted', this.form_age);
         this.form_age_success = true;
+        this.submitStatus = 'PENDING';
+        setTimeout(function () {
+          _this2.submitStatus = 'OK';
+        }, 1000);
+        console.log('📝 Form Submitted', this.form_age);
       } else {
         console.log('❌ Invalid form');
       }
     },
     sendForm_email: function sendForm_email() {
+      var _this3 = this;
+
       this.$v.form_email.$touch();
 
       if (!this.$v.form_email.$invalid) {
+        this.submitStatus = 'PENDING';
+        setTimeout(function () {
+          _this3.submitStatus = 'OK';
+        }, 1000);
         console.log('📝 Form Submitted', this.form_email);
       } else {
         console.log('❌ Invalid form');
@@ -137,11 +149,13 @@ new Vue({
       this.windowWidth = document.documentElement.clientWidth;
     },
     // Funzioni per Nav
-    formAgeTrue: function formAgeTrue(test) {
+    formAgeTrue: function formAgeTrue() {
       this.formAge = true;
+      this.submitStatus = false;
     },
     formEmailTrue: function formEmailTrue() {
       this.formEmail = true;
+      this.submitStatus = false;
     }
   },
   // Rimuove l'evento in ascolto getWindowWidth

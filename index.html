@@ -65,20 +65,28 @@
                         <!-- Name -->
                         <div class="box-form">
                             <label for="name"></label>
+
                             <input v-model="form_name.name"
                                 @blur="$v.form_name.name.$touch()"
                                 :class="{error: errorClass($v.form_name.name), valid: validClass($v.form_name.name)}"
                                 id="name"
                                 placeholder="Scrivi qui la stringa...">
-                            <span v-if="$v.form_name.name.$error"
-                                class="error-message">
-                                <i class="fas fa-exclamation-triangle"></i>
-                                Il campo nome è richiesto
-                            </span>
-                            <span class="submit-status" v-if="submitStatus && !$v.form_name.name.$error">
-                                <p v-if="submitStatus === 'OK'">Grazie puoi proseguire!</p>
-                                <p v-if="submitStatus === 'PENDING'">Invio...</p>
-                            </span>
+
+                            <transition name="transition">
+                                <span v-if="$v.form_name.name.$error"
+                                    class="error-message">
+
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                    Il campo nome è richiesto
+
+                                </span>
+
+                                <div class="submit-status" v-if="submitStatus && !$v.form_name.name.$error">
+                                    <p v-if="submitStatus === 'OK'">Grazie puoi proseguire!</p>
+                                    <p v-if="submitStatus === 'PENDING'">Invio...</p>
+                                </div>
+                            </transition>
+
                         </div>
 
                         <!-- Submit -->
@@ -127,28 +135,38 @@
                         <!-- Age -->
                         <div class="box-form">
                             <label for="age"></label>
+
                             <input v-model.number="form_age.age"
                                 @blur="$v.form_age.age.$touch()"
                                 :class="{error: errorClass($v.form_age.age), valid: validClass($v.form_age.age)}"
                                 id="age"
                                 placeholder="Scrivi qui il numero...">
-                            <span v-if="$v.form_age.age.$error">
-                                <p v-if="!$v.form_age.age.required"
-                                    class="error-message">
-                                    <i class="fas fa-exclamation-triangle"></i>
-                                    Inserisci l'età per proseguire
-                                </p>
-                                <p v-else-if="!$v.form_age.age.integer"
-                                    class="error-message">
-                                    <i class="fas fa-exclamation-triangle"></i>
-                                    Il campo accetta solo numeri
-                                </p>
-                                <p v-else-if="!$v.form_age.age.minMaxAge"
-                                    class="error-message">
-                                    <i class="fas fa-exclamation-triangle"></i>
-                                    Devi aggiungere un dato compreso tra 12 e 120
-                                </p>
-                            </span>
+
+                            <transition name="transition">
+                                <div v-if="$v.form_age.age.$error">
+                                    <p v-if="!$v.form_age.age.required"
+                                        class="error-message">
+                                        <i class="fas fa-exclamation-triangle"></i>
+                                        Inserisci l'età per proseguire
+                                    </p>
+                                    <p v-else-if="!$v.form_age.age.integer"
+                                        class="error-message">
+                                        <i class="fas fa-exclamation-triangle"></i>
+                                        Il campo accetta solo numeri
+                                    </p>
+                                    <p v-else-if="!$v.form_age.age.minMaxAge"
+                                        class="error-message">
+                                        <i class="fas fa-exclamation-triangle"></i>
+                                        Devi aggiungere un dato compreso tra 12 e 120
+                                    </p>
+                                </div>
+
+                                <div class="submit-status" v-if="submitStatus && !$v.form_age.age.$error">
+                                    <p v-if="submitStatus === 'OK'">Grazie puoi proseguire!</p>
+                                    <p v-if="submitStatus === 'PENDING'">Invio...</p>
+                                </div>
+                            </transition>
+
                         </div>
 
                         <!-- Submit -->
@@ -219,21 +237,32 @@
                         <!-- Email -->
                         <div class="box-form">
                             <label for="email"></label>
+
                             <input v-model="form_email.email"
                                 @blur="$v.form_email.email.$touch()"
                                 :class="{error: errorClass($v.form_email.email), valid: validClass($v.form_email.email)}"
                                 id="email"
                                 placeholder="esempio@email.it...">
-                            <p v-if="!$v.form_email.email.email && $v.form_email.email.$error"
-                                class="error-message">
-                                <i class="fas fa-exclamation-triangle"></i>
-                                L'indirizzo email inserito non è valido
-                            </p>
-                            <p v-if="!$v.form_email.email.required && $v.form_email.email.$error"
-                                class="error-message">
-                                <i class="fas fa-exclamation-triangle"></i>
-                                L'email è richiesta se vuoi aggiungerti alla nostra lista di newsletter
-                            </p>
+
+                            <transition name="transition">
+                                <p v-if="!$v.form_email.email.email && $v.form_email.email.$error"
+                                    class="error-message">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                    L'indirizzo email inserito non è valido
+                                </p>
+                                <p v-if="!$v.form_email.email.required && $v.form_email.email.$error"
+                                    class="error-message">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                    L'email è richiesta se vuoi aggiungerti alla nostra lista di newsletter
+                                </p>
+
+
+                                <div class="submit-status" v-if="submitStatus && !$v.form_email.email.$error">
+                                    <p v-if="submitStatus === 'OK'">Complimenti hai terminato!</p>
+                                    <p v-if="submitStatus === 'PENDING'">Invio...</p>
+                                </div>
+                            </transition>
+
                         </div>
 
                         <!-- Submit -->

@@ -33,6 +33,12 @@ p {
 
 button {
     @include button-style;
+
+    &:hover {
+        transform: scale(1.1, 1.1);
+        transition: 0.5s;
+        background-color: #62c047;
+    }
 }
 
 .wrapper {
@@ -44,10 +50,25 @@ button {
     display: flex;
 }
 
-.flex-direction-row {
-    flex-direction: row;
+/* Error Transition */
+.transition-enter-active {
+    animation: transition-in .5s;
 }
 
-.flex-direction-column {
-    flex-direction: column;
+.transition-leave-active {
+    animation: transition-in .5s reverse;
+}
+
+@keyframes transition-in {
+    0% {
+        transform: scale(0);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }

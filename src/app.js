@@ -91,7 +91,7 @@ new Vue( {
                 this.submitStatus = 'PENDING'
                 setTimeout( () => {
                     this.submitStatus = 'OK'
-                }, 1000 )
+                }, 1000 );
                 console.log( '📝 Form Submitted', this.form_name )
 
             } else {
@@ -102,8 +102,12 @@ new Vue( {
         sendForm_age () {
             this.$v.form_age.$touch()
             if ( !this.$v.form_age.$invalid ) {
-                console.log( '📝 Form Submitted', this.form_age )
                 this.form_age_success = true;
+                this.submitStatus = 'PENDING'
+                setTimeout( () => {
+                    this.submitStatus = 'OK'
+                }, 1000 );
+                console.log( '📝 Form Submitted', this.form_age );
             } else {
                 console.log( '❌ Invalid form' )
             }
@@ -112,6 +116,10 @@ new Vue( {
         sendForm_email () {
             this.$v.form_email.$touch()
             if ( !this.$v.form_email.$invalid ) {
+                this.submitStatus = 'PENDING'
+                setTimeout( () => {
+                    this.submitStatus = 'OK'
+                }, 1000 );
                 console.log( '📝 Form Submitted', this.form_email );
 
             } else {
@@ -133,12 +141,14 @@ new Vue( {
         },
 
         // Funzioni per Nav
-        formAgeTrue ( test ) {
+        formAgeTrue () {
             this.formAge = true;
+            this.submitStatus = false;
         },
 
         formEmailTrue () {
             this.formEmail = true;
+            this.submitStatus = false;
         },
     },
 
