@@ -1,8 +1,6 @@
 main {
-
     width: 100vw;
     height: 100vh;
-    scroll-behavior: smooth;
 
     .container {
         width: 100vw;
@@ -152,24 +150,6 @@ main {
     }
 }
 
-/* Animation */
-.pulsebottom {
-    animation: pulse 5s infinite;
-}
-
-@keyframes pulse {
-    0% {
-        transform: scale(0.8);
-    }
-
-    50% {
-        transform: scale(1.3);
-    }
-
-    100% {
-        transform: scale(1);
-    }
-}
 
 /* mediaQuery */
 @media screen and (max-width:600px) {
@@ -189,6 +169,7 @@ main {
         .container {
             position: relative;
             padding: 30px 15px 15px 15px;
+            //scroll-behavior: smooth;
 
             .box-form,
             .title,
