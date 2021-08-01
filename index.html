@@ -96,22 +96,22 @@
 
                     </form>
 
-                    <!-- Nav LG -->
-                    <div class="box-nav-lg" v-if="windowWidth > widthXs">
-                        <nav class="footer-navigation">
-                            <a href="#form-age" @click="formAgeTrue()"
-                                :class="{disable : !form_name_success && !formAge}"><i
-                                    class="fas fa-chevron-down"></i></a>
-                            <a href="#" class="disable"><i class="fas fa-chevron-up"></i></a>
-                        </nav>
-                    </div>
+                        <!-- Nav LG -->
+                        <div class="box-nav-lg" v-if="windowWidth > widthXs">
+                            <nav class="footer-navigation">
+                                <a href="#form-age" @click="formAgeTrue()"
+                                    :class="{disable : !form_name_success && !formAge}"><i
+                                        class="fas fa-chevron-down"></i></a>
+                                <a href="#" class="disable"><i class="fas fa-chevron-up"></i></a>
+                            </nav>
+                        </div>
 
-                    <!-- Nav XS -->
-                    <div class="box-nav-xs" v-if="windowWidth < widthXs && form_name_success">
-                        <a href="#form-age" @click="formAgeTrue()">
-                            Continua <i class="fas fa-long-arrow-alt-right"></i>
-                        </a>
-                    </div>
+                        <!-- Nav XS -->
+                        <div class="box-nav-xs" v-if="windowWidth < widthXs && form_name_success">
+                            <a href="#form-age" @click="formAgeTrue()">
+                                Continua <i class="fas fa-long-arrow-alt-right"></i>
+                            </a>
+                        </div>
 
                 </div>
                 <!-- end Form 1 -->
