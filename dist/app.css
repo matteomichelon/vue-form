@@ -93,6 +93,10 @@ main .container form .error-message {
   border-radius: 7px;
   color: #AF0404;
 }
+main .container form .submit-status p {
+  padding-top: 10px;
+  color: rgba(79, 176, 174, 0.4);
+}
 main .container .box-form,
 main .container .title,
 main .container .button-form,

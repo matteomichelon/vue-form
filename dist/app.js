@@ -22,6 +22,7 @@ new Vue({
     displayMobile: false,
     windowWidth: 0,
     widthXs: 600,
+    submitStatus: null,
     formAge: false,
     formEmail: false,
     checkBlock: false,
@@ -89,10 +90,16 @@ new Vue({
     // Funzione Invia Form per il nome
     // Entra in funzione quando il button viene premuto
     sendForm_name: function sendForm_name() {
+      var _this = this;
+
       this.$v.form_name.$touch();
 
       if (!this.$v.form_name.$invalid) {
         this.form_name_success = true;
+        this.submitStatus = 'PENDING';
+        setTimeout(function () {
+          _this.submitStatus = 'OK';
+        }, 1000);
         console.log('📝 Form Submitted', this.form_name);
       } else {
         console.log('❌ Invalid form');

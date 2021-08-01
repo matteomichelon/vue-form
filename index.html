@@ -75,6 +75,10 @@
                                 <i class="fas fa-exclamation-triangle"></i>
                                 Il campo nome è richiesto
                             </span>
+                            <span class="submit-status" v-if="submitStatus && !$v.form_name.name.$error">
+                                <p v-if="submitStatus === 'OK'">Grazie puoi proseguire!</p>
+                                <p v-if="submitStatus === 'PENDING'">Invio...</p>
+                            </span>
                         </div>
 
                         <!-- Submit -->
@@ -177,7 +181,7 @@
                         </a>
                     </div>
 
-                    
+
 
                 </div>
                 <!-- end Form 2 -->

@@ -17,9 +17,10 @@ new Vue( {
         displayMobile: false,
         windowWidth: 0,
         widthXs: 600,
+        submitStatus: null,
         formAge: false,
         formEmail: false,
-        checkBlock:false,
+        checkBlock: false,
 
         /* Form Object */
         form_name: {
@@ -87,6 +88,10 @@ new Vue( {
             this.$v.form_name.$touch()
             if ( !this.$v.form_name.$invalid ) {
                 this.form_name_success = true;
+                this.submitStatus = 'PENDING'
+                setTimeout( () => {
+                    this.submitStatus = 'OK'
+                }, 1000 )
                 console.log( '📝 Form Submitted', this.form_name )
 
             } else {
@@ -117,7 +122,7 @@ new Vue( {
 
         // Funzione toggle per aggiungere il check alla input 
         // per avere la padronanza sugli stili css della checkbox
-        checkboxToggle(){
+        checkboxToggle () {
             this.form_email.newsletter = !this.form_email.newsletter;
             this.checkBlock = !this.checkBlock;
         },
@@ -128,11 +133,11 @@ new Vue( {
         },
 
         // Funzioni per Nav
-        formAgeTrue(test){
+        formAgeTrue ( test ) {
             this.formAge = true;
         },
 
-        formEmailTrue(){
+        formEmailTrue () {
             this.formEmail = true;
         },
     },
