@@ -202,7 +202,8 @@ new Vue( {
         } );
 
         // Mi permette di posizionare il cursore nell'id prelevato
-        document.getElementById( "name" ).focus()
+        document.getElementById( "name" ).focus();
+
     }
 
 } )

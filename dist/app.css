@@ -151,10 +151,6 @@ button:hover {
   flex-direction: column;
   padding: 50px 0;
 }
-.intro.display-none {
-  transition: opacity 1s ease-out;
-  opacity: 0;
-}
 .intro .image {
   width: 46%;
   margin: auto;
