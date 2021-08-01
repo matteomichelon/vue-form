@@ -17,10 +17,11 @@ new Vue( {
         displayMobile: false,
         windowWidth: 0,
         widthXs: 600,
-        submitStatus: null,
+        submitStatus: '',
         formAge: false,
         formEmail: false,
         checkBlock: false,
+        pulsebottom: 'pulsebottom',
 
         /* Form Object */
         form_name: {
@@ -87,12 +88,21 @@ new Vue( {
         sendForm_name () {
             this.$v.form_name.$touch()
             if ( !this.$v.form_name.$invalid ) {
-                this.form_name_success = true;
-                this.submitStatus = 'PENDING'
-                setTimeout( () => {
-                    this.submitStatus = 'OK'
-                }, 1000 );
-                console.log( '📝 Form Submitted', this.form_name )
+
+
+                if ( this.submitStatus.length > 0 ) {
+                    window.location.href = '#form-age';
+                    this.submitStatus = '';
+                } else {
+
+                    this.form_name_success = true;
+                    this.submitStatus = 'PENDING'
+                    setTimeout( () => {
+                        this.submitStatus = 'OK'
+                    }, 1000 );
+                    console.log( '📝 Form Submitted', this.form_name )
+
+                }
 
             } else {
                 console.log( '❌ Invalid form' )
@@ -102,12 +112,19 @@ new Vue( {
         sendForm_age () {
             this.$v.form_age.$touch()
             if ( !this.$v.form_age.$invalid ) {
-                this.form_age_success = true;
-                this.submitStatus = 'PENDING'
-                setTimeout( () => {
-                    this.submitStatus = 'OK'
-                }, 1000 );
-                console.log( '📝 Form Submitted', this.form_age );
+
+                if ( this.submitStatus.length > 0 ) {
+                    window.location.href = '#form-email';
+                    this.submitStatus = '';
+                } else {
+                    this.form_age_success = true;
+                    this.submitStatus = 'PENDING'
+                    setTimeout( () => {
+                        this.submitStatus = 'OK'
+                    }, 1000 );
+                    console.log( '📝 Form Submitted', this.form_age );
+                }
+
             } else {
                 console.log( '❌ Invalid form' )
             }
@@ -116,11 +133,15 @@ new Vue( {
         sendForm_email () {
             this.$v.form_email.$touch()
             if ( !this.$v.form_email.$invalid ) {
-                this.submitStatus = 'PENDING'
-                setTimeout( () => {
-                    this.submitStatus = 'OK'
-                }, 1000 );
-                console.log( '📝 Form Submitted', this.form_email );
+                if ( this.submitStatus.length > 0 ) {
+                    this.submitStatus = '';
+                } else {
+                    this.submitStatus = 'PENDING'
+                    setTimeout( () => {
+                        this.submitStatus = 'OK'
+                    }, 1000 );
+                    console.log( '📝 Form Submitted', this.form_email );
+                }
 
             } else {
                 console.log( '❌ Invalid form' )

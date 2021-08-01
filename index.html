@@ -96,22 +96,25 @@
 
                     </form>
 
-                        <!-- Nav LG -->
-                        <div class="box-nav-lg" v-if="windowWidth > widthXs">
-                            <nav class="footer-navigation">
-                                <a href="#form-age" @click="formAgeTrue()"
-                                    :class="{disable : !form_name_success && !formAge}"><i
-                                        class="fas fa-chevron-down"></i></a>
-                                <a href="#" class="disable"><i class="fas fa-chevron-up"></i></a>
-                            </nav>
-                        </div>
+                    <!-- Nav LG -->
+                    <div class="box-nav-lg" v-if="windowWidth > widthXs">
+                        <nav class="footer-navigation">
+                            <a href="#form-age" @click="formAgeTrue()"
+                                :class="[{disable : !form_name_success && !formAge}, {pulsebottom : form_name_success }]"><i
+                                    class="fas fa-chevron-down"></i></a>
+                            <a href="#" class="disable"><i class="fas fa-chevron-up"></i></a>
+                        </nav>
+                    </div>
 
-                        <!-- Nav XS -->
-                        <div class="box-nav-xs" v-if="windowWidth < widthXs && form_name_success">
-                            <a href="#form-age" @click="formAgeTrue()">
-                                Continua <i class="fas fa-long-arrow-alt-right"></i>
-                            </a>
-                        </div>
+                    <!-- Nav XS -->
+                    <div class="box-nav-xs" v-if="windowWidth < widthXs && form_name_success">
+                        <a href="#form-age" @click="formAgeTrue()">
+                            <i class="fas 
+                            fa-long-arrow-alt-right 
+                            pulsebottom">
+                            </i>
+                        </a>
+                    </div>
 
                 </div>
                 <!-- end Form 1 -->
@@ -180,8 +183,9 @@
                     <div class="box-nav-lg" v-if="windowWidth > widthXs">
                         <nav class="footer-navigation">
                             <a href="#form-email" @click="formEmailTrue()"
-                                :class="{disable : ! form_age_success && !formEmail}"><i
-                                    class="fas fa-chevron-down"></i></a>
+                                :class="[{disable : ! form_age_success && !formEmail}, {pulsebottom : form_age_success }]"><i
+                                    class="fas fa-chevron-down"></i>
+                            </a>
                             <a href="#form-name"><i class="fas fa-chevron-up"></i></a>
                         </nav>
                     </div>
@@ -189,13 +193,16 @@
                     <!-- Nav XS -->
                     <div v-if="windowWidth < widthXs" class="box-nav-xs return">
                         <a href="#form-name">
-                            <i class="fas fa-long-arrow-alt-left"></i> Indietro
+                            <i class="fas fa-long-arrow-alt-left"></i>
                         </a>
                     </div>
 
                     <div v-if="windowWidth < widthXs && form_age_success" class="box-nav-xs">
                         <a href="#form-email" @click="formEmailTrue()">
-                            Continua <i class="fas fa-long-arrow-alt-right"></i>
+                            <i class="fas 
+                            fa-long-arrow-alt-right 
+                            pulsebottom">
+                            </i>
                         </a>
                     </div>
 
@@ -232,6 +239,7 @@
                             <span class="input-newsletter" @click="checkboxToggle()">
                                 <i class="fas fa-check" :class="{'display-block' : checkBlock}"></i>
                             </span>
+                            <span class="text">Iscriviti alla nostra newsletter</span>
                         </div>
 
                         <!-- Email -->
@@ -283,7 +291,7 @@
                     <!-- Nav XS -->
                     <div v-if="windowWidth < widthXs" class="box-nav-xs return">
                         <a href="#form-age">
-                            <i class="fas fa-long-arrow-alt-left"></i> Indietro
+                            <i class="fas fa-long-arrow-alt-left"></i>
                         </a>
                     </div>
 

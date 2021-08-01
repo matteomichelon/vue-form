@@ -35,9 +35,15 @@ button {
     @include button-style;
 
     &:hover {
-        transform: scale(1.1, 1.1);
-        transition: 0.5s;
+        @include transition-hover;
         background-color: #62c047;
+    }
+}
+
+.fa-long-arrow-alt-left{
+    &:hover{
+        @include transition-hover;
+        color: #62c047;
     }
 }
 
