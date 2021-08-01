@@ -70,7 +70,8 @@
                                 @blur="$v.form_name.name.$touch()"
                                 :class="{error: errorClass($v.form_name.name), valid: validClass($v.form_name.name)}"
                                 id="name"
-                                placeholder="Scrivi qui la stringa...">
+                                placeholder="Scrivi qui la stringa..."
+                                onfocus=" let value = this.value; this.value = null; this.value=value">
 
                             <transition name="transition">
                                 <span v-if="$v.form_name.name.$error"
@@ -92,6 +93,8 @@
                         <!-- Submit -->
                         <div class="button-form" v-if="!$v.form_name.name.$error">
                             <button>Ok <i class="fas fa-check"></i></button>
+                            <div v-if="form_name_success && submitStatus === 'OK' ">premi <span>Enter <i
+                                        class="fas fa-level-down-alt"></i></span></div>
                         </div>
 
                     </form>
@@ -175,6 +178,8 @@
                         <!-- Submit -->
                         <div class="button-form" v-if="!$v.form_age.age.$error">
                             <button>Ok <i class="fas fa-check"></i></button>
+                            <div v-if="form_age_success && submitStatus === 'OK'">premi <span>Enter <i
+                                        class="fas fa-level-down-alt"></i></span></div>
                         </div>
 
                     </form>

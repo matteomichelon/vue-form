@@ -27,6 +27,7 @@ new Vue({
     formEmail: false,
     checkBlock: false,
     pulsebottom: 'pulsebottom',
+    init: null,
 
     /* Form Object */
     form_name: {
@@ -98,7 +99,9 @@ new Vue({
       if (!this.$v.form_name.$invalid) {
         if (this.submitStatus.length > 0) {
           window.location.href = '#form-age';
-          this.submitStatus = '';
+          this.submitStatus = ''; // Mi permette di posizionare il cursore nell'id prelevato
+
+          document.getElementById("age").focus();
         } else {
           this.form_name_success = true;
           this.submitStatus = 'PENDING';
@@ -119,7 +122,9 @@ new Vue({
       if (!this.$v.form_age.$invalid) {
         if (this.submitStatus.length > 0) {
           window.location.href = '#form-email';
-          this.submitStatus = '';
+          this.submitStatus = ''; // Mi permette di posizionare il cursore nell'id prelevato
+
+          document.getElementById("email").focus();
         } else {
           this.form_age_success = true;
           this.submitStatus = 'PENDING';
@@ -174,8 +179,6 @@ new Vue({
     }
   },
   // Rimuove l'evento in ascolto getWindowWidth
-
-  /* TODO */
   beforeDestroy: function beforeDestroy() {
     window.removeEventListener('resize', this.getWindowWidth);
   },
@@ -187,7 +190,9 @@ new Vue({
       window.addEventListener('resize', this.getWindowWidth); //Init
 
       this.getWindowWidth();
-    });
+    }); // Mi permette di posizionare il cursore nell'id prelevato
+
+    document.getElementById("name").focus();
   }
 });
 

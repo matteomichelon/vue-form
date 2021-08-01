@@ -22,6 +22,7 @@ new Vue( {
         formEmail: false,
         checkBlock: false,
         pulsebottom: 'pulsebottom',
+        init: null,
 
         /* Form Object */
         form_name: {
@@ -89,10 +90,12 @@ new Vue( {
             this.$v.form_name.$touch()
             if ( !this.$v.form_name.$invalid ) {
 
-
                 if ( this.submitStatus.length > 0 ) {
                     window.location.href = '#form-age';
                     this.submitStatus = '';
+
+                    // Mi permette di posizionare il cursore nell'id prelevato
+                    document.getElementById( "age" ).focus()
                 } else {
 
                     this.form_name_success = true;
@@ -101,6 +104,7 @@ new Vue( {
                         this.submitStatus = 'OK'
                     }, 1000 );
                     console.log( '📝 Form Submitted', this.form_name )
+
 
                 }
 
@@ -116,6 +120,9 @@ new Vue( {
                 if ( this.submitStatus.length > 0 ) {
                     window.location.href = '#form-email';
                     this.submitStatus = '';
+
+                    // Mi permette di posizionare il cursore nell'id prelevato
+                    document.getElementById( "email" ).focus()
                 } else {
                     this.form_age_success = true;
                     this.submitStatus = 'PENDING'
@@ -123,6 +130,7 @@ new Vue( {
                         this.submitStatus = 'OK'
                     }, 1000 );
                     console.log( '📝 Form Submitted', this.form_age );
+
                 }
 
             } else {
@@ -174,7 +182,6 @@ new Vue( {
     },
 
     // Rimuove l'evento in ascolto getWindowWidth
-    /* TODO */
     beforeDestroy () {
         window.removeEventListener( 'resize', this.getWindowWidth );
     },
@@ -187,8 +194,10 @@ new Vue( {
 
             //Init
             this.getWindowWidth()
-        } )
+        } );
 
+        // Mi permette di posizionare il cursore nell'id prelevato
+        document.getElementById( "name" ).focus()
     }
 
 } )

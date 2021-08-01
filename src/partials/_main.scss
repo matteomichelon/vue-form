@@ -53,6 +53,19 @@ main {
                 padding-left: 2px;
                 vertical-align: middle;
             }
+
+            div{
+                display: inline;
+                margin-left: 10px;
+
+                span{
+                    font-weight: bold;
+                }
+
+                i{
+                    transform: rotate(90deg);
+                }
+            }
         }
 
         .box-newsletter {
