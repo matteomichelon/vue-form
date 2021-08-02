@@ -21,9 +21,6 @@
         href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
         rel="stylesheet">
 
-    <!-- Script ajax -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"></script>
-
     <!-- Script Vue -->
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 
@@ -45,12 +42,15 @@
         <!-- Wrapper -->
         <section class="wrapper">
 
+            <!-- Intro -->
             <div class="intro display-flex" :class="{ 'display-none' : formStartNone}">
 
+                <!-- Image -->
                 <div class="image">
                     <img src="./img/treedom2.png" alt="Treedom Logo">
                 </div>
 
+                <!-- Text -->
                 <div class="text-intro">
                     <h1>Coding Challenge Treedom</h1>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis quos placeat facere
@@ -59,6 +59,7 @@
                         repudiandae explicabo exercitationem atque voluptas!</p>
                 </div>
 
+                <!-- Button -->
                 <div class="start display-flex">
                     <button @click="startForm()">Inizia</button>
                 </div>
@@ -71,7 +72,6 @@
                 <!-- Form 1 -->
                 <div id="form-name" class="container">
 
-                    <!-- Form -->
                     <form @submit.prevent="sendForm_name" autocomplete="off" class="display-flex">
 
                         <!-- Title Form -->
@@ -147,7 +147,6 @@
                     :class="{'flex-container-xs' : windowWidth < widthXs }"
                     v-if="form_name_success">
 
-                    <!-- Form -->
                     <form @submit.prevent="sendForm_age" autocomplete="off" class="display-flex">
 
                         <!-- Title Form -->
@@ -233,8 +232,6 @@
                         </a>
                     </div>
 
-
-
                 </div>
                 <!-- end Form 2 -->
 
@@ -243,7 +240,6 @@
                     :class="{'flex-container-xs' : windowWidth < widthXs }"
                     v-if="form_age_success">
 
-                    <!-- Form -->
                     <form @submit.prevent="sendForm_email" autocomplete="off" class="display-flex">
 
                         <!-- Title Form -->
@@ -324,29 +320,31 @@
             <!-- Recap -->
             <div class="recap display-flex" :class="{ 'display-none' :  !recapFormBlock}">
 
+                <!-- image -->
                 <div class="image">
                     <img src="./img/treedom2.png" alt="Treedom Logo">
                 </div>
 
-                <h3>Riepilogo Dati inseriti</h3>
+                <!-- Text -->
+                <div class="text-recap">
 
-                <ul>
-                    <li>
-                        {{ form_name.name }}
-                    </li>
-                    <li>
-                        {{ form_age.age }}
-                    </li>
-                    <li v-if="form_email.email !== null && form_email.newsletter">
-                        {{ form_email.email }}
-                    </li>
-                </ul>
+                    <h3>Riepilogo Dati inseriti</h3>
 
-                <div class="text-intro">
-
+                    <ul>
+                        <li>
+                            {{ form_name.name }}
+                        </li>
+                        <li>
+                            {{ form_age.age }}
+                        </li>
+                        <li v-if="form_email.email !== null && form_email.newsletter">
+                            {{ form_email.email }}
+                        </li>
+                    </ul>
 
                 </div>
 
+                <!-- Button -->
                 <div class="start display-flex">
                     <button @click="reloadForm()">Ricomincia</button>
                 </div>
