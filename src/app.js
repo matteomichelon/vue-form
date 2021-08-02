@@ -12,7 +12,8 @@ new Vue( {
     /* DATA */
     data: {
 
-        formStart: false,
+        formStartNone: false,
+        recapFormBlock: false,
         displayMobile: false,
         windowWidth: 0,
         widthXs: 600,
@@ -72,8 +73,14 @@ new Vue( {
     methods: {
 
         // Funzione per far accedere al form
-        startForm(){
-            formStart = true;
+        startForm () {
+            this.formStartNone = true;
+
+            setTimeout( () => {
+                // Mi permette di posizionare il cursore nell'id prelevato
+                document.getElementById( "name" ).focus();
+            }, 500 );
+
         },
 
         // Funzione per la validazione del campo
@@ -108,14 +115,12 @@ new Vue( {
                     setTimeout( () => {
                         this.submitStatus = 'OK'
                     }, 1000 );
-                    console.log( '📝 Form Submitted', this.form_name )
+                    
 
 
                 }
 
-            } else {
-                console.log( '❌ Invalid form' )
-            }
+            } 
         },
 
         sendForm_age () {
@@ -134,13 +139,8 @@ new Vue( {
                     setTimeout( () => {
                         this.submitStatus = 'OK'
                     }, 1000 );
-                    console.log( '📝 Form Submitted', this.form_age );
-
                 }
-
-            } else {
-                console.log( '❌ Invalid form' )
-            }
+            } 
         },
 
         sendForm_email () {
@@ -148,17 +148,17 @@ new Vue( {
             if ( !this.$v.form_email.$invalid ) {
                 if ( this.submitStatus.length > 0 ) {
                     this.submitStatus = '';
+                    this.recapFormNone = true;
+                    console.log( this.recapFormNone );
+                    console.log( this.formStartNone );
+
                 } else {
                     this.submitStatus = 'PENDING'
                     setTimeout( () => {
                         this.submitStatus = 'OK'
-                    }, 1000 );
-                    console.log( '📝 Form Submitted', this.form_email );
+                    }, 1000 );                    
                 }
-
-            } else {
-                console.log( '❌ Invalid form' )
-            }
+            } 
         },
         /* end Send Form */
 
@@ -200,9 +200,6 @@ new Vue( {
             //Init
             this.getWindowWidth()
         } );
-
-        // Mi permette di posizionare il cursore nell'id prelevato
-        document.getElementById( "name" ).focus();
 
     }
 

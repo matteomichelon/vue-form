@@ -45,7 +45,7 @@
         <!-- Wrapper -->
         <section class="wrapper">
 
-            <div class="intro display-flex" :class="{ 'display-none' : formStart }">
+            <div class="intro display-flex" :class="{ 'display-none' : formStartNone}">
 
                 <div class="image">
                     <img src="./img/treedom2.png" alt="Treedom Logo">
@@ -60,13 +60,13 @@
                 </div>
 
                 <div class="start display-flex">
-                    <button @click="formStart = true">Inizia</button>
+                    <button @click="startForm()">Inizia</button>
                 </div>
 
             </div>
 
             <!-- MAIN -->
-            <main :class="{'display-none' : !formStart}">
+            <main :class="{'display-none' : !formStartNone || recapFormBlock}">
 
                 <!-- Form 1 -->
                 <div id="form-name" class="container">
@@ -302,7 +302,7 @@
 
                         <!-- Submit -->
                         <div class="button-form" v-if="!$v.form_email.email.$error">
-                            <button>Termina</button>
+                            <button @click="recapFormBlock = true">Termina</button>
                         </div>
 
                     </form>
@@ -326,6 +326,34 @@
 
             </main>
             <!-- end MAIN -->
+
+            <!-- Recap -->
+            <div class="recap display-flex" :class="{ 'display-none' :  !recapFormBlock}">
+
+                <div class="image">
+                    <img src="./img/treedom2.png" alt="Treedom Logo">
+                </div>
+
+                <h3>Riepilogo Dati inseriti</h3>
+
+                <ul>
+                    <li>
+                        {{ form_name.name }}
+                    </li>
+                    <li>
+                        {{ form_age.age }}
+                    </li>
+                    <li v-if="form_email.email !== null && form_email.newsletter">
+                        {{ form_email.email }}
+                    </li>
+                </ul>
+
+                <div class="text-intro">
+
+
+                </div>
+
+            </div>
 
         </section>
         <!-- end Wrapper -->

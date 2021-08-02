@@ -17,7 +17,8 @@ new Vue({
 
   /* DATA */
   data: {
-    formStart: false,
+    formStartNone: false,
+    recapFormBlock: false,
     displayMobile: false,
     windowWidth: 0,
     widthXs: 600,
@@ -78,7 +79,11 @@ new Vue({
   methods: {
     // Funzione per far accedere al form
     startForm: function startForm() {
-      formStart = true;
+      this.formStartNone = true;
+      setTimeout(function () {
+        // Mi permette di posizionare il cursore nell'id prelevato
+        document.getElementById("name").focus();
+      }, 500);
     },
     // Funzione per la validazione del campo
     // Deve avere un paramentro. Esempio: $v.form.email
@@ -111,10 +116,7 @@ new Vue({
           setTimeout(function () {
             _this.submitStatus = 'OK';
           }, 1000);
-          console.log('📝 Form Submitted', this.form_name);
         }
-      } else {
-        console.log('❌ Invalid form');
       }
     },
     sendForm_age: function sendForm_age() {
@@ -134,10 +136,7 @@ new Vue({
           setTimeout(function () {
             _this2.submitStatus = 'OK';
           }, 1000);
-          console.log('📝 Form Submitted', this.form_age);
         }
-      } else {
-        console.log('❌ Invalid form');
       }
     },
     sendForm_email: function sendForm_email() {
@@ -148,15 +147,15 @@ new Vue({
       if (!this.$v.form_email.$invalid) {
         if (this.submitStatus.length > 0) {
           this.submitStatus = '';
+          this.recapFormNone = true;
+          console.log(this.recapFormNone);
+          console.log(this.formStartNone);
         } else {
           this.submitStatus = 'PENDING';
           setTimeout(function () {
             _this3.submitStatus = 'OK';
           }, 1000);
-          console.log('📝 Form Submitted', this.form_email);
         }
-      } else {
-        console.log('❌ Invalid form');
       }
     },
 
@@ -193,9 +192,7 @@ new Vue({
       window.addEventListener('resize', this.getWindowWidth); //Init
 
       this.getWindowWidth();
-    }); // Mi permette di posizionare il cursore nell'id prelevato
-
-    document.getElementById("name").focus();
+    });
   }
 });
 

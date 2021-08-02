@@ -147,23 +147,23 @@ button:hover {
     transform: scale(1);
   }
 }
-.intro {
+.intro, .recap {
   flex-direction: column;
   padding: 50px 0;
 }
-.intro .image {
+.intro .image, .recap .image {
   width: 46%;
   margin: auto;
 }
-.intro .text-intro {
+.intro .text-intro, .recap .text-intro {
   text-align: center;
   width: 80%;
   margin: auto;
 }
-.intro .text-intro p {
+.intro .text-intro p, .recap .text-intro p {
   text-align: center;
 }
-.intro .start {
+.intro .start, .recap .start {
   padding: 30px 0;
   justify-content: center;
 }
