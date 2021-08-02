@@ -175,22 +175,6 @@ ul li:last-child {
     transform: scale(1);
   }
 }
-@-webkit-keyframes slideInFromBottom {
-  0% {
-    transform: translateY(-100%);
-  }
-  100% {
-    transform: translateY(0%);
-  }
-}
-@keyframes slideInFromBottom {
-  0% {
-    transform: translateY(-100%);
-  }
-  100% {
-    transform: translateY(0%);
-  }
-}
 .intro,
 .recap {
   flex-direction: column;
@@ -245,11 +229,6 @@ ul li:last-child {
   justify-content: center;
 }
 
-.recap {
-  -webkit-animation: 1s ease-out 0s 1 slideInFromBottom;
-          animation: 1s ease-out 0s 1 slideInFromBottom;
-}
-
 @media screen and (max-width: 600px) {
   h1 {
     font-size: 30px;
@@ -282,8 +261,6 @@ ul li:last-child {
 main {
   width: 100vw;
   height: 100vh;
-  -webkit-animation: 1s ease-out 0s 1 slideInFromBottom;
-          animation: 1s ease-out 0s 1 slideInFromBottom;
 }
 main .container {
   width: 100vw;
