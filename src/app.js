@@ -1,7 +1,5 @@
+// Richiamo vuelidate
 Vue.use( vuelidate.default )
-
-// For form_name
-//const format = validators.pattern("[!@#$%^&*()_+\-=\[\]{};':\"\\|,.<>\/?]+");
 
 // For form_age
 const minMaxAge = validators.between( 12, 120 )
@@ -72,7 +70,7 @@ new Vue( {
     /* METHODS */
     methods: {
 
-        // Funzione per far accedere al form
+        // Funzione per accedere al form
         startForm () {
             this.formStartNone = true;
 
@@ -83,6 +81,7 @@ new Vue( {
 
         },
 
+        // Funzione per il refresh della pagina
         reloadForm () {
             window.location.reload()
         },
@@ -99,13 +98,18 @@ new Vue( {
             return fieldForm.$error
         },
 
+        //-------------
         /* Send Form */
+        //-------------
         // Funzione Invia Form per il nome
         // Entra in funzione quando il button viene premuto
         sendForm_name () {
             this.$v.form_name.$touch()
+
+            // Se il form non risulta valido non entra nel codice
             if ( !this.$v.form_name.$invalid ) {
 
+                // Se il form è già stato compilato entra in questo codice
                 if ( this.submitStatus.length > 0 ) {
                     window.location.href = '#form-age';
                     this.submitStatus = '';
@@ -120,17 +124,19 @@ new Vue( {
                         this.submitStatus = 'OK'
                     }, 1000 );
 
-
-
                 }
-
             }
         },
 
+        // Funzione Invia Form per l'età
+        // Entra in funzione quando il button viene premuto
         sendForm_age () {
             this.$v.form_age.$touch()
+
+            // Se il form non risulta valido non entra nel codice
             if ( !this.$v.form_age.$invalid ) {
 
+                // Se il form è già stato compilato entra in questo codice
                 if ( this.submitStatus.length > 0 ) {
                     window.location.href = '#form-email';
                     this.submitStatus = '';
@@ -138,33 +144,43 @@ new Vue( {
                     // Mi permette di posizionare il cursore nell'id prelevato
                     document.getElementById( "email" ).focus()
                 } else {
+
                     this.form_age_success = true;
                     this.submitStatus = 'PENDING'
                     setTimeout( () => {
                         this.submitStatus = 'OK'
                     }, 1000 );
+
                 }
             }
         },
 
+        // Funzione Invia Form per l'email
+        // Entra in funzione quando il button viene premuto
         sendForm_email () {
             this.$v.form_email.$touch()
+
+            // Se il form non risulta valido non entra nel codice
             if ( !this.$v.form_email.$invalid ) {
+
+                // Se il form è già stato compilato entra in questo codice
                 if ( this.submitStatus.length > 0 ) {
                     this.submitStatus = '';
                     this.recapFormNone = true;
-                    console.log( this.recapFormNone );
-                    console.log( this.formStartNone );
 
                 } else {
+
                     this.submitStatus = 'PENDING'
                     setTimeout( () => {
                         this.submitStatus = 'OK'
                     }, 1000 );
+
                 }
             }
         },
+        //-----------------
         /* end Send Form */
+        //-----------------
 
         // Funzione toggle per aggiungere il check alla input 
         // per avere la padronanza sugli stili css della checkbox
@@ -173,7 +189,8 @@ new Vue( {
             this.checkBlock = !this.checkBlock;
         },
 
-        // Funzione che mi permette di vedere i width pixel 
+        // Funzione per monitorare la larghezza del monitor
+        // Gestita dal Mounted
         getWindowWidth () {
             this.windowWidth = document.documentElement.clientWidth;
         },
@@ -206,5 +223,4 @@ new Vue( {
         } );
 
     }
-
 } )
