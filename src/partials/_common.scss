@@ -20,13 +20,27 @@ img {
 h1{
     padding: 20px 0;
     font-size: 55px;
+    color: $title-color;
 }
 
 h2 {
     font-weight: unset;
-    font-size: 24px;
+    font-size: 30px;
     line-height: 32px;
     padding-bottom: 15px;
+    color: $title-color;
+}
+
+h3{
+    padding: 10px 0;
+    font-size: 24px;
+    color: $title-color;
+}
+
+h4{
+    padding: 10px 0;
+    font-size: 20px;
+    color: $title-color; 
 }
 
 p {
@@ -43,6 +57,19 @@ button {
     &:hover {
         @include transition-hover;
         background-color: $secondary-color;
+    }
+}
+
+ul li{
+    list-style-type: none;
+    padding-top: 20px;
+
+    &:first-child{
+        padding-top: 0;
+    }
+
+    &:last-child{
+        padding-bottom: 20px;
     }
 }
 

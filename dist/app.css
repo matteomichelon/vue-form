@@ -21,13 +21,27 @@ img {
 h1 {
   padding: 20px 0;
   font-size: 55px;
+  color: #3d3d3d;
 }
 
 h2 {
   font-weight: unset;
-  font-size: 24px;
+  font-size: 30px;
   line-height: 32px;
   padding-bottom: 15px;
+  color: #3d3d3d;
+}
+
+h3 {
+  padding: 10px 0;
+  font-size: 24px;
+  color: #3d3d3d;
+}
+
+h4 {
+  padding: 10px 0;
+  font-size: 20px;
+  color: #3d3d3d;
 }
 
 p {
@@ -60,6 +74,17 @@ button:hover {
   transform: scale(1.1, 1.1);
   transition: 0.5s;
   background-color: #85B973;
+}
+
+ul li {
+  list-style-type: none;
+  padding-top: 20px;
+}
+ul li:first-child {
+  padding-top: 0;
+}
+ul li:last-child {
+  padding-bottom: 20px;
 }
 
 .fa-long-arrow-alt-left:hover {
@@ -147,30 +172,72 @@ button:hover {
     transform: scale(1);
   }
 }
-.intro, .recap {
+.intro,
+.recap {
   flex-direction: column;
-  padding: 50px 0;
+  padding: 20px 0;
 }
-.intro .image, .recap .image {
-  width: 46%;
+.intro span,
+.recap span {
+  font-weight: bold;
+}
+.intro li,
+.recap li {
+  color: rgba(61, 61, 61, 0.7);
+}
+.intro .image,
+.recap .image {
+  width: 20%;
   margin: auto;
 }
-.intro .text-intro, .recap .text-intro {
+.intro .text-intro,
+.intro .text-recap,
+.recap .text-intro,
+.recap .text-recap {
   text-align: center;
   width: 80%;
   margin: auto;
 }
-.intro .text-intro p, .recap .text-intro p {
+.intro .text-intro p,
+.intro .text-recap p,
+.recap .text-intro p,
+.recap .text-recap p {
   text-align: center;
 }
-.intro .start, .recap .start {
-  padding: 30px 0;
+.intro .start,
+.recap .start {
+  padding: 15px 0;
+  justify-content: center;
+}
+.intro .software,
+.recap .software {
+  padding: 15px 0;
+  text-align: left;
+  display: flex;
   justify-content: center;
 }
 
 @media screen and (max-width: 600px) {
   h1 {
     font-size: 30px;
+  }
+
+  ul li {
+    padding-top: 10px;
+  }
+  ul li:first-child {
+    padding-top: 0;
+  }
+  ul li:last-child {
+    padding-bottom: 10px;
+  }
+
+  h3 {
+    font-size: 23px;
+  }
+
+  h4 {
+    font-size: 18px;
   }
 
   p {

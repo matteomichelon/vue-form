@@ -332,15 +332,29 @@
 
                     <ul>
                         <li>
-                            {{ form_name.name }}
+                            <span>Nome:</span> {{ form_name.name }}                            
                         </li>
                         <li>
-                            {{ form_age.age }}
+                            <span>Età:</span> {{ form_age.age }}                            
                         </li>
                         <li v-if="form_email.email !== null && form_email.newsletter">
-                            {{ form_email.email }}
+                            <span>Email:</span> {{ form_email.email }}
                         </li>
                     </ul>
+
+                    <h4>Di seguito la lista delle tecnologie utilizzate per la creazione di questo form</h4>
+
+                    <div class="software">
+                        <ul>
+                            <li> <span>VsCode:</span> Utilizzato per la stesura del codice</li>
+                            <li> <span>Html Css:</span> Utilizzati per gli stili della visualizzazione della pagina</li>
+                            <li> <span>Laravel-Mix:</span> Utilizzato per avere un codice più pulito e sfruttare al meglio gli stili css</li>
+                            <li> <span>Vue Javascript:</span> Utilizzato per la stesura delle funzioni e iterazioni con l'utente</li>
+                            <li> <span>Vuelidate:</span> Utilizzato per la validazione del Form</li>
+                        </ul>
+                    </div>
+
+                    <h4>Grazie per la vostra attenzione</h4>
 
                 </div>
 
