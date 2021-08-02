@@ -83,6 +83,10 @@ new Vue( {
 
         },
 
+        reloadForm () {
+            window.location.reload()
+        },
+
         // Funzione per la validazione del campo
         // Deve avere un paramentro. Esempio: $v.form.email
         validClass ( fieldForm ) {
@@ -115,12 +119,12 @@ new Vue( {
                     setTimeout( () => {
                         this.submitStatus = 'OK'
                     }, 1000 );
-                    
+
 
 
                 }
 
-            } 
+            }
         },
 
         sendForm_age () {
@@ -140,7 +144,7 @@ new Vue( {
                         this.submitStatus = 'OK'
                     }, 1000 );
                 }
-            } 
+            }
         },
 
         sendForm_email () {
@@ -156,9 +160,9 @@ new Vue( {
                     this.submitStatus = 'PENDING'
                     setTimeout( () => {
                         this.submitStatus = 'OK'
-                    }, 1000 );                    
+                    }, 1000 );
                 }
-            } 
+            }
         },
         /* end Send Form */
 

@@ -85,6 +85,9 @@ new Vue({
         document.getElementById("name").focus();
       }, 500);
     },
+    reloadForm: function reloadForm() {
+      window.location.reload();
+    },
     // Funzione per la validazione del campo
     // Deve avere un paramentro. Esempio: $v.form.email
     validClass: function validClass(fieldForm) {

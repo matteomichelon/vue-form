@@ -280,16 +280,10 @@
                                 placeholder="esempio@email.it...">
 
                             <transition name="transition">
-                                <p v-if="!$v.form_email.email.email && $v.form_email.email.$error"
-                                    class="error-message">
-                                    <i class="fas fa-exclamation-triangle"></i>
-                                    L'indirizzo email inserito non è valido
-                                </p>
-                                <p v-if="!$v.form_email.email.required && $v.form_email.email.$error"
-                                    class="error-message">
-                                    <i class="fas fa-exclamation-triangle"></i>
-                                    L'email è richiesta se vuoi aggiungerti alla nostra lista di newsletter
-                                </p>
+                                <div v-if="!$v.form_email.email.required && $v.form_email.email.$error"
+                                    class="submit-status">
+                                    <p>Inserisci un indirizzo mail valido</p>
+                                </div>
 
 
                                 <div class="submit-status" v-if="submitStatus && !$v.form_email.email.$error">
@@ -351,6 +345,10 @@
                 <div class="text-intro">
 
 
+                </div>
+
+                <div class="start display-flex">
+                    <button @click="reloadForm()">Ricomincia</button>
                 </div>
 
             </div>
