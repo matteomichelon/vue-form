@@ -53,10 +53,14 @@
                 <!-- Text -->
                 <div class="text-intro">
                     <h1>Coding Challenge Treedom</h1>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis quos placeat facere
-                        molestiae
-                        deserunt a unde id veritatis distinctio! Quia omnis perspiciatis consequuntur eos, minus
-                        repudiandae explicabo exercitationem atque voluptas!</p>
+                    <p>In questo progetto ho voluto ricreare 3 step di un form prendendo spunto da <a
+                            href="https://www.typeform.com/">Typeform</a>.<br>
+                        Per gestire gli effetti grafici e il passaggio tra form ho utilizzato Vue <span>v2.x</span> e
+                        Javascript,<br>
+                        invece per le validazioni ho utilizzato un'estensione di Vue denominata <a
+                            href="https://vuelidate.js.org/">Vuelidate</a> <span>v2.x</span>.<br>
+
+                        Premi il tasto <span>Inizia</span> per accedere al form.</p>
                 </div>
 
                 <!-- Button -->
@@ -78,7 +82,9 @@
                         <div class="title">
                             <h2>Form Name</h2>
                             <p>In questo form andremo ad inserire una stringa che può contenere lettere e
-                                numeri, l'unica richiesta è che la stringa non sia vuota.
+                                numeri, l'unica richiesta è che la stringa non sia vuota.<br>
+                                Premendo il tasto Ok oppure cliccando in un punto qualunque del monitor, avremo l'errore
+                                che in questo caso scomparirà appena inseriremo del testo nella parte richiesta.<br>
                             </p>
                         </div>
 
@@ -152,8 +158,8 @@
                         <!-- Title Form -->
                         <div class="title">
                             <h2>Form Età</h2>
-                            <p>In questo form andremo ad inserire un numero interno compreso tra 12 e 120.
-                                Il campo inoltre non accetta l'inserimento di stringhe.
+                            <p>In questo form andremo ad inserire un numero intero compreso tra 12 e 120, non accetta valori differenti.<br>
+                                Inoltre non accetta l'inserimento di stringhe.
                             </p>
                         </div>
 
@@ -246,9 +252,8 @@
                         <div class="title">
                             <h2>Form Email</h2>
                             <p>
-                                In questo form andremo ad inserire una mail, il campo non è obbligatorio
-                                se non è presente la spunta nella checkbox della newsletter.
-                                Se scriviamo senza aggiungere la spunta il tasto invia si disattiva.
+                                In questo form andremo ad inserire una mail, l'input è obbligatorio
+                                se è presente la spunta nella checkbox della newsletter.
                             </p>
                         </div>
 
@@ -332,10 +337,10 @@
 
                     <ul>
                         <li>
-                            <span>Nome:</span> {{ form_name.name }}                            
+                            <span>Nome:</span> {{ form_name.name }}
                         </li>
                         <li>
-                            <span>Età:</span> {{ form_age.age }}                            
+                            <span>Età:</span> {{ form_age.age }}
                         </li>
                         <li v-if="form_email.email !== null && form_email.newsletter">
                             <span>Email:</span> {{ form_email.email }}
@@ -348,8 +353,10 @@
                         <ul>
                             <li> <span>VsCode:</span> Utilizzato per la stesura del codice</li>
                             <li> <span>Html Css:</span> Utilizzati per gli stili della visualizzazione della pagina</li>
-                            <li> <span>Laravel-Mix:</span> Utilizzato per avere un codice più pulito e sfruttare al meglio gli stili css</li>
-                            <li> <span>Vue Javascript:</span> Utilizzato per la stesura delle funzioni e iterazioni con l'utente</li>
+                            <li> <span>Laravel-Mix:</span> Utilizzato per avere un codice più pulito e sfruttare al
+                                meglio gli stili css</li>
+                            <li> <span>Vue Javascript:</span> Utilizzato per la stesura delle funzioni e iterazioni con
+                                l'utente</li>
                             <li> <span>Vuelidate:</span> Utilizzato per la validazione del Form</li>
                         </ul>
                     </div>

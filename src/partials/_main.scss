@@ -1,6 +1,7 @@
 main {
     width: 100vw;
     height: 100vh;
+    animation: 1s ease-out 0s 1 slideInFromBottom;
 
     .container {
         width: 100vw;

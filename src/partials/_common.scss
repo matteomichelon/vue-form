@@ -49,6 +49,10 @@ p {
     line-height: 28px;
     color: $primary-color;
     text-align: left;
+
+    span{
+        font-weight: bold;
+    }
 }
 
 button {
@@ -136,5 +140,15 @@ ul li{
 
     100% {
         transform: scale(1);
+    }
+}
+
+@keyframes slideInFromBottom {
+    0% {
+        transform: translateY(-100%);
+    }
+
+    100% {
+        transform: translateY(0%);
     }
 }
